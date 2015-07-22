@@ -1,11 +1,11 @@
 README
 ======
 
-Bitcoinocracy is a service that aims to determine the truth backed by real monetary value.
+[Bitcoinocracy](http://bitcoinocracy.com) is a project that aims to determine the truth backed by real monetary value and to facilitate decentralized decision making in the Bitcoin eco-system.
 
-It is absolutely free and doesn't require registration.
+It is absolutely transparent, free and doesn't require user registration.
 
-Just sign the statement you like with bitcoin address that holds bitcoins and see the verifiable results!
+Just sign the statements with non-empty bitcoin addresses to express your opinion.
 
 Data structure
 --------------
