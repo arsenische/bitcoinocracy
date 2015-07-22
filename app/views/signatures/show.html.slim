@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  = @signature.signature
+
+
+= link_to 'Edit', edit_argument_signature_path(@argument, @signature)
+'|
+= link_to 'Back', argument_signatures_path(@argument)

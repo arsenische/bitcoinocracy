@@ -1,0 +1,23 @@
+- model_class = Signature
+div class="page-header"
+  h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+
+table class="table table-striped"
+  thead
+    tr
+      th
+      th
+      th
+      th
+
+  tbody
+    - @signatures.each do |signature|
+      tr
+        td = signature.signature
+        td = link_to 'Show', [@argument, signature]
+        td = link_to 'Edit', edit_argument_signature_path(@argument, signature)
+        td = link_to 'Destroy', [@argument, signature], data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Signature', new_argument_signature_path, :class => 'btn btn-primary'

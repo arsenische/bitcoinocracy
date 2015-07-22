@@ -1,0 +1,28 @@
+<%= JSON.pretty_generate(
+{
+  id: @argument.id,
+  statement: @argument.statement,
+  pros: {
+    statement: @argument.pro_statement,
+    signatures: @argument.pro_signatures.map{|s|
+      {
+      id: s.id,
+      bitcoin_address: s.bitcoin_address.bitcoin_address,
+      signature: s.signature,
+      created_at: s.created_at
+      }
+    }
+  },
+  cons: {
+    statement: @argument.con_statement,
+    signatures: @argument.con_signatures.map{|s|
+      {
+      id: s.id,
+      bitcoin_address: s.bitcoin_address.bitcoin_address,
+      signature: s.signature,
+      created_at: s.created_at
+      }
+    }
+  }
+}
+).html_safe%>

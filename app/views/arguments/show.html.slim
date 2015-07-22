@@ -1,0 +1,50 @@
+- model_class = Argument
+.well
+    code
+      h1#argument
+       =@argument.pro_statement
+
+    .row
+      .col-md-2
+        button.btn.btn-default.btn-lg.btn-info#toggle_button type="button"
+          span.fa.fa-refresh aria-hidden="true" 
+            |  Doubt
+      .col-md-1
+        span.lead
+          |  OR  
+      .col-md-9
+        =form_tag(argument_signatures_path(@argument.id), {remote:true, id:"signature_form"}) do |f|
+          =text_area("signature", "signature", {style:"font-size:1.5em;width:100%;", placeholder:"Please copy the above statement, sign it with your bitcoin address and paste the signature here", class:"submit_on_edit"})
+          =button_tag "Submit", class:"btn btn-lg btn-success pull-right"
+          =hidden_field("signature", "negation", {value: 0, autocomplete: false})
+
+    div#signature_status style='display:none'
+
+.row
+  .col-md-12
+    p 
+      h2
+        = model_class.human_attribute_name(:validity) + ': ' + btc_human(@argument.validity)
+        small =link_to "see all signatures", argument_path(@argument, :json), class:"btn btn-small btn-default pull-right"
+
+.row
+    .col-md-6.bg-success
+      h3 #{btc_human(@argument.pros_sum)} Believe
+    .col-md-6.bg-danger
+      h3 #{btc_human(@argument.cons_sum)} Doubt
+
+.row
+    - [@argument.pros, @argument.cons].each_with_index do |addresses, i|
+      .col-md-6     
+        table class="table #{i==0 ? 'bg-success' : 'bg-danger'}"
+          - addresses.each do |address|
+            tr
+              td
+                =address.bitcoin_address
+              td
+                =btc_human address.balance
+
+input type='hidden' name='pro_statement' id='pro_statement' value=@argument.pro_statement
+input type='hidden' name='con_statement' id='con_statement' value=@argument.con_statement
+
+

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  argument_id: 
+  is_negation?: false
+  signature: MyString
+  bitcoin_address_id: 
+
+two:
+  argument_id: 
+  is_negation?: false
+  signature: MyString
+  bitcoin_address_id: 

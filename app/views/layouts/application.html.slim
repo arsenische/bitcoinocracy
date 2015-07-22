@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title Bitcoinocracy
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+  	= nav_bar static: :top, brand: "Bitcoinocracy", responsive: true
+  		= menu_group
+  			= menu_item "Home", root_path
+  			= menu_item "Statements", arguments_path
+
+  	.container
+    	= yield
