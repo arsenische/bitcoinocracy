@@ -46,3 +46,6 @@ gem "twitter-bootstrap-rails"
 # gem 'debugger', group: [:development, :test]
 
 gem 'puma'
+gem 'responders', '~> 2.0'
+gem 'rails_12factor'
+ruby '2.0.0'
