@@ -7,6 +7,9 @@ It is absolutely transparent, free and doesn't require user registration.
 
 Just sign the statements with non-empty bitcoin addresses to express your opinion.
 
+[![tip for next commit](https://tip4commit.com/projects/43130.svg)](https://tip4commit.com/github/arsenische/bitcoinocracy)
+
+
 Data structure
 --------------
 
