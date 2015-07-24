@@ -1,9 +1,11 @@
 - model_class = Argument
-div class="page-header"
-  h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+h1 =t '.title', :default => model_class.model_name.human.pluralize.titleize
 
-  - @arguments.each do |argument|
-    = link_to "#{argument.statement} (#{btc_human(argument.validity)})", argument_path(argument), :class => "btn #{argument.validity < 0 ? 'bg-danger' : (argument.validity > 0 ? 'bg-success' : '')}"
+- @arguments.each do |argument|
+  = link_to "#{argument.statement} (#{btc_human(argument.validity)})", argument_path(argument), :class => "btn #{argument.validity < 0 ? 'bg-danger' : (argument.validity > 0 ? 'bg-success' : '')}"
 
-= link_to t('.new'), new_argument_path, :class => 'btn btn-primary'
+p
+  .lead
+    | OR 
+    = link_to t('.new'), new_argument_path, :class => 'btn btn-primary'
 

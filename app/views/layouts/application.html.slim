@@ -11,5 +11,13 @@ html
   			= menu_item "Home", root_path
   			= menu_item "Statements", arguments_path
 
-  	.container
-    	= yield
+    .container
+      = yield
+      .footer
+        p 
+          a href="http://bitcoinocracy.com" Bitcoinocracy.com
+          |. Source code is available at 
+          a href="https://github.com/arsenische/bitcoinocracy/" target="_blank" GitHub
+          |  and you can also 
+          a href="https://tip4commit.com/github/arsenische/bitcoinocracy" target="_blank" support
+          |  its development.

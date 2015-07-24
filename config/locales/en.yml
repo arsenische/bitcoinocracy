@@ -23,4 +23,5 @@ en:
   hello: "Hello world"
   arguments:
     index:
-      new: "New Argument"
+      new: "Create New Argument"
+      title: "See Arguments"
