@@ -1,11 +1,11 @@
 - model_class = Argument
 h1 =t '.title', :default => model_class.model_name.human.pluralize.titleize
 
-- @arguments.each do |argument|
-  = link_to "#{argument.statement} (#{btc_human(argument.validity)})", argument_path(argument), :class => "btn #{argument.validity < 0 ? 'bg-danger' : (argument.validity > 0 ? 'bg-success' : '')}"
+.lead Bitcoinocracy offers free and transparent voting mechanism to facilitate decentralized decision making in the Bitcoin eco-system and to determine the truth backed by real monetary value.
 
+.lead
+  = link_to t('.new'), new_argument_path
+  |  or check the existing ones:
 p
-  .lead
-    | OR 
-    = link_to t('.new'), new_argument_path, :class => 'btn btn-primary'
-
+  - @arguments.each do |argument|
+    = link_to "#{argument.statement} (#{btc_human(argument.validity)})", argument_path(argument), :class => "btn #{argument.validity < 0 ? 'bg-danger' : (argument.validity > 0 ? 'bg-success' : '')}"

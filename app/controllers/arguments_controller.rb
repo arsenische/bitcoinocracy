@@ -10,6 +10,14 @@ class ArgumentsController < ApplicationController
   # GET /arguments/1
   # GET /arguments/1.json
   def show
+    
+    @all_sum = (@pros_sum=@argument.pros_sum) + (@cons_sum=@argument.cons_sum)
+
+    if @all_sum > 0
+      @pros_share = 1.0*@pros_sum / @all_sum
+      @cons_share = 1.0*@cons_sum / @all_sum
+    end
+
   end
 
   # GET /arguments/new
@@ -64,7 +72,7 @@ class ArgumentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_argument
-      @argument = Argument.find(params[:id])
+      @argument = Argument.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -23,5 +23,5 @@ en:
   hello: "Hello world"
   arguments:
     index:
-      new: "Create New Argument"
-      title: "See Arguments"
+      new: "Submit your Argument"
+      title: "Bitcoinocracy - vote with your Bitcoin signature"

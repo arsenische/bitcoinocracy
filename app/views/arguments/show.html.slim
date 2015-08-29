@@ -1,4 +1,5 @@
 - model_class = Argument
+- title @argument.statement
 .well
     code
       h1#argument
@@ -9,6 +10,7 @@
         button.btn.btn-default.btn-lg.btn-info#toggle_button type="button"
           span.fa.fa-refresh aria-hidden="true" 
             |  Doubt
+
       .col-md-1
         span.lead
           |  OR  
@@ -24,14 +26,28 @@
   .col-md-12
     p 
       h2
-        = model_class.human_attribute_name(:validity) + ': ' + btc_human(@argument.validity)
-        small =link_to "see all signatures", argument_path(@argument, :json), class:"btn btn-small btn-default pull-right"
+        .pull-left
+          = model_class.human_attribute_name(:validity) + ': ' + btc_human(@argument.validity)
+
+
+        / AddThis Button BEGIN
+        .addthis_toolbox.addthis_default_style.addthis_32x32_style.pull-right addthis:data_track_clickback="false" addthis:data_track_addressbar="false" addthis:ui_language="#{I18n.locale}"
+          a.addthis_button_preferred_1
+          a.addthis_button_preferred_2
+          a.addthis_button_preferred_3
+          a.addthis_button_preferred_4
+          a.addthis_button_compact
+          a.addthis_counter.addthis_bubble_style
+        / AddThis Button END
+
+        small =link_to "see all signatures", argument_path(@argument, :json), class:"btn btn-small btn-link"
+
 
 .row
     .col-md-6.bg-success
-      h3 #{btc_human(@argument.pros_sum)} Believe
+      h3 #{btc_human(@pros_sum)} #{percent_human(@pros_share)} Believe
     .col-md-6.bg-danger
-      h3 #{btc_human(@argument.cons_sum)} Doubt
+      h3 #{btc_human(@cons_sum)} #{percent_human(@cons_share)} Doubt
 
 .row
     - [@argument.pros, @argument.cons].each_with_index do |addresses, i|

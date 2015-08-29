@@ -38,6 +38,5 @@ Todo
 ----
 
 * Background job to update bitcoin balances (e. g. `BitcoinAddress.all.each{|a|a.update_balance};Argument.all.each{|a|a.update_validity}`)
-* Decide how to handle multiple signatures from the same bitcoin address for/against the same argument
-* Pagination, search, compare arguments, social buttons, etc...
+* Pagination, search, compare arguments (A vs B), etc...
 * Optional user accounts? Compound arguments? Logical inference?

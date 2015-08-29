@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.2'
@@ -48,4 +49,6 @@ gem "twitter-bootstrap-rails"
 gem 'puma'
 gem 'responders', '~> 2.0'
 gem 'rails_12factor'
-ruby '2.0.0'
+
+gem 'friendly_id', '~> 5.1.0'
+gem 'meta-tags'

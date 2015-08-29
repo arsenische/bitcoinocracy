@@ -1,4 +1,8 @@
 class Argument < ActiveRecord::Base
+
+  extend FriendlyId
+  friendly_id :statement, use: :slugged
+
 	has_many :signatures
 
 	has_many :pro_signatures, -> { where negation: false}, class_name: 'Signature'

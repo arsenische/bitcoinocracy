@@ -1,9 +1,9 @@
-= form_for @argument, html: { class: "form form-horizontal argument" } do |f|
+= form_for @argument, html: { class: "form form-vertical argument" } do |f|
   .form-group
     = f.label :statement, :class => 'control-label'
     .controls
       = f.text_field :statement, :class => 'form-control'
     = error_span(@argument[:statement])
-  = f.submit nil, :class => 'btn btn-primary'
+  = f.submit "Submit", :class => 'btn btn-primary'
   '
   = link_to t('.cancel', :default => t("helpers.links.cancel")), arguments_path, :class => 'btn'
