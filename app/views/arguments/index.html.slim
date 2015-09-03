@@ -1,7 +1,19 @@
 - model_class = Argument
+- title "Vote with your Bitcoin signature"
+
+/ AddThis Button BEGIN
+.addthis_toolbox.addthis_default_style.addthis_32x32_style.pull-right addthis:data_track_clickback="false" addthis:data_track_addressbar="false" addthis:ui_language="#{I18n.locale}"
+  a.addthis_button_preferred_1
+  a.addthis_button_preferred_2
+  a.addthis_button_preferred_3
+  a.addthis_button_preferred_4
+  a.addthis_button_compact
+  a.addthis_counter.addthis_bubble_style
+/ AddThis Button END
+
 h1 =t '.title', :default => model_class.model_name.human.pluralize.titleize
 
-.lead Bitcoinocracy offers free and transparent voting mechanism to facilitate decentralized decision making in the Bitcoin eco-system and to determine the truth backed by real monetary value.
+.lead Bitcoinocracy offers free and transparent voting mechanism to facilitate decentralized decision making in the Bitcoin ecosystem and to determine the truth backed by real monetary value.
 
 .lead
   = link_to t('.new'), new_argument_path
