@@ -5,13 +5,23 @@ class BitcoinAddress < ActiveRecord::Base
   has_many :signatures
   has_many :arguments, through: :signatures
 
+  def request_balance url
+    (Integer(Net::HTTP.get(URI.parse(url))) rescue false)
+  end
+
   def update_balance
-    res = Net::HTTP.get(URI.parse("https://blockchain.info/q/addressbalance/#{self.bitcoin_address}"))
-    if ( (new_balance=res.to_i) >= 0) and (new_balance != self.balance)
-      update_attribute :balance, new_balance
-      arguments.each{|a|a.update_validity}
+    res = request_balance("https://blockchain.info/q/addressbalance/#{self.bitcoin_address}") ||
+          request_balance("https://blockexplorer.com/api/addr/#{self.bitcoin_address}/balance")
+
+    if res!=false
+      if ( (new_balance=res.to_i) >= 0) and (new_balance != self.balance)
+        update_attribute :balance, new_balance
+        arguments.each{|a|a.update_validity}
+      else
+        touch :updated_at # push it to the end of the queue
+      end
     else
-      touch :updated_at # push it to the end of the queue
+      log.warn "failed to retrieve balance for bitcoin address #{self.bitcoin_address}"
     end
   end
 
