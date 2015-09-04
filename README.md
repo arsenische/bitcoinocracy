@@ -35,9 +35,8 @@ Algorithm
 For each argument calculate validity: `validity = sum(pro bitcoin balances) - sum(con bitcoin balances)`
 
 Todo
-----
-* Direct shareable links for "I doubt..." arguments.
-* Chat or comments on the argument's page?
+----.
+* https://github.com/arsenische/bitcoinocracy/issues
 * Pagination, search, compare arguments (A vs B), etc...
+* Chat or comments on the argument's page?
 * Optional user accounts? Compound arguments? Logical inference?
-* Background job to update bitcoin balances (e. g. `BitcoinAddress.all.each{|a|a.update_balance};Argument.all.each{|a|a.update_validity}`) instead of a temporary hack at ApplicationController#update_bitcoin_balance.
