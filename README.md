@@ -36,7 +36,8 @@ For each argument calculate validity: `validity = sum(pro bitcoin balances) - su
 
 Todo
 ----
-
-* Background job to update bitcoin balances (e. g. `BitcoinAddress.all.each{|a|a.update_balance};Argument.all.each{|a|a.update_validity}`)
+* Direct shareable links for "I doubt..." arguments.
+* Chat or comments on the argument's page?
 * Pagination, search, compare arguments (A vs B), etc...
 * Optional user accounts? Compound arguments? Logical inference?
+* Background job to update bitcoin balances (e. g. `BitcoinAddress.all.each{|a|a.update_balance};Argument.all.each{|a|a.update_validity}`) instead of a temporary hack at ApplicationController#update_bitcoin_balance.
