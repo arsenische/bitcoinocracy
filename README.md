@@ -35,7 +35,7 @@ Algorithm
 For each argument calculate validity: `validity = sum(pro bitcoin balances) - sum(con bitcoin balances)`
 
 Todo
-----.
+----
 * https://github.com/arsenische/bitcoinocracy/issues
 * Pagination, search, compare arguments (A vs B), etc...
 * Chat or comments on the argument's page?
