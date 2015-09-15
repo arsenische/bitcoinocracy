@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150828210837) do
+ActiveRecord::Schema.define(version: 20150915135237) do
 
   create_table "arguments", force: :cascade do |t|
     t.text     "statement"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150828210837) do
     t.datetime "updated_at"
   end
 
+  add_index "signatures", ["argument_id", "bitcoin_address_id", "negation"], name: "unique_signature", unique: true
   add_index "signatures", ["argument_id", "bitcoin_address_id"], name: "index_signatures_on_argument_id_and_bitcoin_address_id"
   add_index "signatures", ["argument_id"], name: "index_signatures_on_argument_id"
   add_index "signatures", ["bitcoin_address_id"], name: "index_signatures_on_bitcoin_address_id"
