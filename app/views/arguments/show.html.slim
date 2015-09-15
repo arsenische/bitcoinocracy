@@ -3,7 +3,7 @@
 .well
     code
       h1#argument
-       =@argument.pro_statement
+       = @is_doubt ? @argument.con_statement : @argument.pro_statement
 
     .row
       .col-md-2
@@ -18,7 +18,7 @@
         =form_tag(argument_signatures_path(@argument.id), {remote:true, id:"signature_form"}) do |f|
           =text_area("signature", "signature", {style:"font-size:1.5em;width:100%;", placeholder:"Please copy the above statement, sign it with your bitcoin address and paste the signature here", class:"submit_on_edit"})
           =button_tag "Submit", class:"btn btn-lg btn-success pull-right"
-          =hidden_field("signature", "negation", {value: 0, autocomplete: false})
+          =hidden_field("signature", "negation", {value: @is_doubt, autocomplete: false})
 
     div#signature_status style='display:none'
 

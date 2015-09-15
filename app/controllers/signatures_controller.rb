@@ -34,16 +34,26 @@ class SignaturesController < ApplicationController
     @signature.create_bitcoin_address_if_needed
 
     respond_to do |format|
-      if @signature.save
-        @argument.update_validity
-        # format.html { redirect_to [@argument, @signature], notice: 'Signature was successfully created.' }
-        format.js   {}
-        # format.json { render :show, status: :created, location: @signature }
-      else
-        # format.html { render :new }
-        format.js   { render :create_fail }
-        # format.json { render json: @signature.errors, status: :unprocessable_entity }
-      end
+      begin
+        if @signature.save
+          @argument.update_validity
+          # redirect_to [@argument], notice: "Your vote of #{@signature.bitcoin_address.balance} is accepted"
+          # format.html { redirect_to [@argument, @signature], notice: 'Signature was successfully created.' }
+          flash[:notice] = "Your vote of #{@signature.bitcoin_address.balance/1e8} btc is accepted!"
+          flash.keep(:notice)
+          url = argument_url(@argument.id) + (@signature.negation ? "?doubt=1" : "")
+          format.js   { render :create, :locals => {redirection_url: url, exception: nil} }
+          # format.json { render :show, status: :created, location: @signature }
+        else
+          # format.html { render :new }
+          error_message = @signature.errors.full_messages.join('; ')
+          format.js   { render :create_fail, :locals => {error_message:  error_message} }
+          # format.json { render json: @signature.errors, status: :unprocessable_entity }
+        end
+      rescue => e
+       format.js {render :create_fail, :locals => {error_message: "Signature submission failed (non-unique signature?)" , exception: e}}
+      end    
+
     end
   end
 

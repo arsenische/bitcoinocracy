@@ -12,6 +12,7 @@ class ArgumentsController < ApplicationController
   def show
     
     @all_sum = (@pros_sum=@argument.pros_sum) + (@cons_sum=@argument.cons_sum)
+    @is_doubt = !params[:doubt].nil?
 
     if @all_sum > 0
       @pros_share = 1.0*@pros_sum / @all_sum

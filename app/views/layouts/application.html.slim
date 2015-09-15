@@ -14,6 +14,11 @@ html
         / = menu_item "Arguments", arguments_path          
 
     .container
+      - if flash[:error]
+        .error.bg-danger =h flash[:error]
+      - if flash[:notice]
+        .notice.bg-success =h flash[:notice]
+
       = yield
       .footer
         hr
