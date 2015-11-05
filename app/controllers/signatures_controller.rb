@@ -47,7 +47,7 @@ class SignaturesController < ApplicationController
         else
           # format.html { render :new }
           error_message = @signature.errors.full_messages.join('; ')
-          format.js   { render :create_fail, :locals => {error_message:  error_message} }
+          format.js   { render :create_fail, :locals => {error_message:  error_message, exception: nil} }
           # format.json { render json: @signature.errors, status: :unprocessable_entity }
         end
       rescue => e
