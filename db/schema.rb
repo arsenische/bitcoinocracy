@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150915135237) do
+ActiveRecord::Schema.define(version: 20151108050654) do
 
   create_table "arguments", force: :cascade do |t|
     t.text     "statement"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20150915135237) do
   end
 
   add_index "arguments", ["slug"], name: "index_arguments_on_slug", unique: true
+  add_index "arguments", ["statement"], name: "index_arguments_on_statement", unique: true
 
   create_table "bitcoin_addresses", force: :cascade do |t|
     t.string   "bitcoin_address", limit: 255
@@ -29,6 +30,8 @@ ActiveRecord::Schema.define(version: 20150915135237) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "bitcoin_addresses", ["bitcoin_address"], name: "index_bitcoin_addresses_on_bitcoin_address", unique: true
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
