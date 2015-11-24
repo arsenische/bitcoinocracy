@@ -24,11 +24,11 @@ table.table
       td style="text-align:center;"
         div
           = link_to "", "#{argument_path(argument)}", class: "btn btn-xs fa fa-arrow-up"
-        div
+        div class="#{argument.validity < 0 ? 'bg-danger' : (argument.validity > 0 ? 'bg-success' : '')}"
           = "#{btc_human(argument.validity,'')}"
         div
           = link_to "", "#{argument_path(argument)}?doubt=1", class: "btn btn-xs fa fa-arrow-down"
-      td style='vertical-align:middle' class="#{argument.validity < 0 ? 'bg-danger' : (argument.validity > 0 ? 'bg-success' : '')}"
+      td style='vertical-align:middle' 
         = link_to "#{argument.statement}", argument_path(argument), class: "lead"
 
 = paginate @arguments, :theme => 'twitter-bootstrap-3'
