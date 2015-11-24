@@ -52,3 +52,5 @@ gem 'rails_12factor'
 
 gem 'friendly_id', '~> 5.1.0'
 gem 'meta-tags'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'

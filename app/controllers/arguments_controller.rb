@@ -4,7 +4,7 @@ class ArgumentsController < ApplicationController
   # GET /arguments
   # GET /arguments.json
   def index
-    @arguments = Argument.all.order("abs(validity) desc")
+    @arguments = Argument.all.order("abs(validity) desc").page params[:page]
   end
 
   # GET /arguments/1
