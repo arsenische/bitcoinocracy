@@ -23,11 +23,11 @@ table.table
     tr
       td style="text-align:center;"
         div
-          = link_to "", "#{argument_path(argument)}", class: "btn btn-xs fa fa-arrow-up"
+          = link_to "", "#{argument_path(argument)}", class: "btn btn-xs fa fa-arrow-up", title: "Supported by #{btc_human(argument.pros_sum)}"
         div class="#{argument.validity < 0 ? 'bg-danger' : (argument.validity > 0 ? 'bg-success' : '')}"
           = "#{btc_human(argument.validity,'')}"
         div
-          = link_to "", "#{argument_path(argument)}?doubt=1", class: "btn btn-xs fa fa-arrow-down"
+          = link_to "", "#{argument_path(argument)}?doubt=1", class: "btn btn-xs fa fa-arrow-down", title: "Opposed by #{btc_human(argument.cons_sum)}"
       td style='vertical-align:middle' 
         = link_to "#{argument.statement}", argument_path(argument), class: "lead"
 
