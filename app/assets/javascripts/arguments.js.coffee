@@ -4,14 +4,15 @@
 
 toggleArgument = (x)-> 
   is_negation = $('#signature_negation')
-  if (is_negation.val()=='0')
+  #  console.log(is_negation.val())
+  if (is_negation.val()=='false')
     $('#argument').text($('#con_statement').val())
     $('#toggle_button span').text(' Believe')
-    is_negation.val('1')
+    is_negation.val('true')
   else
     $('#argument').text($('#pro_statement').val())
     $('#toggle_button span').text(' Doubt')
-    is_negation.val('0')
+    is_negation.val('false')
   $('#signature_signature').val('')
 
 ready = ->

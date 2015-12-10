@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108050654) do
+ActiveRecord::Schema.define(version: 20151210164934) do
 
   create_table "arguments", force: :cascade do |t|
     t.text     "statement"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20151108050654) do
   create_table "bitcoin_addresses", force: :cascade do |t|
     t.string   "bitcoin_address", limit: 255
     t.integer  "balance",         limit: 8,   default: 0
-    t.datetime "created_at"
     t.datetime "updated_at"
   end
 
@@ -47,12 +46,10 @@ ActiveRecord::Schema.define(version: 20151108050654) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "signatures", force: :cascade do |t|
-    t.integer  "argument_id"
-    t.boolean  "negation",                       default: false
-    t.string   "signature",          limit: 255
-    t.integer  "bitcoin_address_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "argument_id"
+    t.boolean "negation",                       default: false
+    t.string  "signature",          limit: 255
+    t.integer "bitcoin_address_id"
   end
 
   add_index "signatures", ["argument_id", "bitcoin_address_id", "negation"], name: "unique_signature", unique: true
