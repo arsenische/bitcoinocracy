@@ -6,7 +6,6 @@
     statement: @argument.pro_statement,
     signatures: @argument.pro_signatures.map{|s|
       {
-      id: s.id,
       bitcoin_address: s.bitcoin_address.bitcoin_address,
       signature: s.signature
       }
@@ -16,7 +15,6 @@
     statement: @argument.con_statement,
     signatures: @argument.con_signatures.map{|s|
       {
-      id: s.id,
       bitcoin_address: s.bitcoin_address.bitcoin_address,
       signature: s.signature
       }
