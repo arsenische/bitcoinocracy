@@ -1,7 +1,6 @@
 require 'net/http'
 class Signature < ActiveRecord::Base
   self.primary_key = 'signature'
-  default_scope { order(id: :asc) }
 
   belongs_to :argument
   belongs_to :bitcoin_address

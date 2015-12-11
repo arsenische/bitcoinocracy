@@ -4,7 +4,7 @@
   statement: @argument.statement,
   pros: {
     statement: @argument.pro_statement,
-    signatures: @argument.pro_signatures.map{|s|
+    signatures: @argument.pro_signatures.order('signature').map{|s|
       {
       bitcoin_address: s.bitcoin_address.bitcoin_address,
       signature: s.signature
@@ -13,7 +13,7 @@
   },
   cons: {
     statement: @argument.con_statement,
-    signatures: @argument.con_signatures.map{|s|
+    signatures: @argument.con_signatures.order('signature').map{|s|
       {
       bitcoin_address: s.bitcoin_address.bitcoin_address,
       signature: s.signature
