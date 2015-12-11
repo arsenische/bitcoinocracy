@@ -1,6 +1,6 @@
 require 'net/http'
 class BitcoinAddress < ActiveRecord::Base
-  default_scope { order('balance DESC') }
+  default_scope { order('balance DESC, bitcoin_address ASC') }
 
   has_many :signatures
   has_many :arguments, through: :signatures
