@@ -4,7 +4,7 @@ class ArgumentsController < ApplicationController
   # GET /arguments
   # GET /arguments.json
   def index
-    active
+    controversial
   end
 
 
