@@ -13,6 +13,14 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :arguments, except: [:edit, :update, :destroy] do
+    collection do
+      get 'popular'
+      get 'controversial'
+      get 'newest'
+      get 'active'
+      get 'valid'
+      get 'invalid'
+    end
     resources :signatures, except: [:edit, :update, :destroy]
   end
 

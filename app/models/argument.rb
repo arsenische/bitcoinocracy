@@ -20,21 +20,21 @@ class Argument < ActiveRecord::Base
 		"I doubt that #{statement}"
 	end
 
-	def pros_sum
-		pros.uniq.sum(&:balance)
+	def pros_share
+		all_sum > 0 ? 1.0*pros_sum/all_sum : nil
 	end
 
-	def cons_sum
-		cons.uniq.sum(&:balance)
-	end
-
-	def calculate_validity
-		# pros.sum(:balance) - cons.sum(:balance)
-		# ^--- disabled due to bug in rails
-		pros_sum - cons_sum # workaround
+	def cons_share
+		all_sum > 0 ? 1.0*cons_sum/all_sum : nil
 	end
 
 	def update_validity
-		update_attribute :validity, calculate_validity
+		self.pros_sum = pros.uniq.sum(&:balance)
+		self.cons_sum = cons.uniq.sum(&:balance)
+		self.validity = pros_sum - cons_sum
+		self.all_sum = pros_sum + cons_sum
+		self.min_sum = [pros_sum, cons_sum].min
+		save!
 	end
+
 end

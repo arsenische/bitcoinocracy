@@ -45,9 +45,9 @@
 
 .row
     .col-md-6.bg-success
-      h3 #{btc_human(@pros_sum)} #{percent_human(@pros_share)} Believe
+      h3 #{btc_human(@argument.pros_sum)} #{percent_human(@argument.pros_share)} Believe
     .col-md-6.bg-danger
-      h3 #{btc_human(@cons_sum)} #{percent_human(@cons_share)} Doubt
+      h3 #{btc_human(@argument.cons_sum)} #{percent_human(@argument.cons_share)} Doubt
 
 .row
     - [@argument.pros, @argument.cons].each_with_index do |addresses, i|

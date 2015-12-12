@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151211015643) do
+ActiveRecord::Schema.define(version: 20151212021023) do
 
   create_table "arguments", force: :cascade do |t|
     t.text     "statement"
@@ -19,6 +19,10 @@ ActiveRecord::Schema.define(version: 20151211015643) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.integer  "pros_sum",   limit: 8, default: 0
+    t.integer  "cons_sum",   limit: 8, default: 0
+    t.integer  "all_sum",    limit: 8, default: 0
+    t.integer  "min_sum",    limit: 8, default: 0
   end
 
   add_index "arguments", ["slug"], name: "index_arguments_on_slug", unique: true

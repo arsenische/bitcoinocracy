@@ -7,18 +7,41 @@ class ArgumentsController < ApplicationController
     @arguments = Argument.all.order("abs(validity) desc").page params[:page]
   end
 
+  def newest
+    @arguments = Argument.all.order("created_at desc").page params[:page]
+    render :index
+  end
+
+  def active
+    @arguments = Argument.all.order("updated_at desc").page params[:page]
+    render :index
+  end
+
+  def valid
+    @arguments = Argument.all.order("validity desc").page params[:page]
+    render :index
+  end
+
+  def invalid
+    @arguments = Argument.all.order("validity asc").page params[:page]
+    render :index
+  end
+
+  def popular
+    @arguments = Argument.all.order("all_sum desc").page params[:page]
+    render :index
+  end
+
+  def controversial
+    @arguments = Argument.all.order("min_sum desc").page params[:page]
+    render :index
+  end
+
+
   # GET /arguments/1
   # GET /arguments/1.json
   def show
-    
-    @all_sum = (@pros_sum=@argument.pros_sum) + (@cons_sum=@argument.cons_sum)
     @is_doubt = !params[:doubt].nil?
-
-    if @all_sum > 0
-      @pros_share = 1.0*@pros_sum / @all_sum
-      @cons_share = 1.0*@cons_sum / @all_sum
-    end
-
   end
 
   # GET /arguments/new

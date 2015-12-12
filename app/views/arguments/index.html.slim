@@ -18,6 +18,17 @@ h1 =t '.title', :default => model_class.model_name.human.pluralize.titleize
 .lead
   = link_to t('.new'), new_argument_path
   |  or check the existing ones:
+
+div role="navigation"
+  ul.nav.nav-tabs
+    li class="#{action_name=='index' ? 'active' : ''}" =link_to "Decided", root_path
+    li class="#{action_name=='popular' ? 'active' : ''}" =link_to "Popular", popular_arguments_path
+    li class="#{action_name=='valid' ? 'active' : ''}" =link_to "Valid", valid_arguments_path
+    li class="#{action_name=='invalid' ? 'active' : ''}" =link_to "Invalid", invalid_arguments_path
+    li class="#{action_name=='controversial' ? 'active' : ''}" =link_to "Controversial", controversial_arguments_path
+    li class="#{action_name=='newest' ? 'active' : ''}" =link_to "Newest", newest_arguments_path
+    li class="#{action_name=='active' ? 'active' : ''}" =link_to "Active", active_arguments_path
+
 table.table
   - @arguments.each do |argument|
     tr
