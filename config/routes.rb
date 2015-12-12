@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'arguments#index'
+  root 'arguments#active'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -14,12 +14,13 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :arguments, except: [:edit, :update, :destroy] do
     collection do
+      get 'active'
+      get 'decided'
       get 'popular'
       get 'controversial'
-      get 'newest'
-      get 'active'
       get 'valid'
       get 'invalid'
+      get 'newest'
     end
     resources :signatures, except: [:edit, :update, :destroy]
   end

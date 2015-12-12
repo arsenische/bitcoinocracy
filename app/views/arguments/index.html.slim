@@ -2,7 +2,7 @@
 - title "Vote with your Bitcoin signature"
 
 / AddThis Button BEGIN
-.addthis_toolbox.addthis_default_style.addthis_32x32_style.pull-right addthis:data_track_clickback="false" addthis:data_track_addressbar="false" addthis:ui_language="#{I18n.locale}"
+.addthis_toolbox.addthis_default_style.addthis_32x32_style.pull-right addthis:data_track_clickback="false" addthis:data_track_addressbar="false" addthis:ui_language="#{I18n.locale}" addthis:url="http://bitcoinocracy.com"
   a.addthis_button_preferred_1
   a.addthis_button_preferred_2
   a.addthis_button_preferred_3
@@ -21,13 +21,13 @@ h1 =t '.title', :default => model_class.model_name.human.pluralize.titleize
 
 div role="navigation"
   ul.nav.nav-tabs
-    li class="#{action_name=='index' ? 'active' : ''}" =link_to "Decided", root_path
+    li class="#{action_name=='active' ? 'active' : ''}" =link_to "Active", active_arguments_path
+    li class="#{action_name=='decided' ? 'active' : ''}" =link_to "Decided", decided_arguments_path
     li class="#{action_name=='popular' ? 'active' : ''}" =link_to "Popular", popular_arguments_path
+    li class="#{action_name=='controversial' ? 'active' : ''}" =link_to "Controversial", controversial_arguments_path
     li class="#{action_name=='valid' ? 'active' : ''}" =link_to "Valid", valid_arguments_path
     li class="#{action_name=='invalid' ? 'active' : ''}" =link_to "Invalid", invalid_arguments_path
-    li class="#{action_name=='controversial' ? 'active' : ''}" =link_to "Controversial", controversial_arguments_path
     li class="#{action_name=='newest' ? 'active' : ''}" =link_to "Newest", newest_arguments_path
-    li class="#{action_name=='active' ? 'active' : ''}" =link_to "Active", active_arguments_path
 
 table.table
   - @arguments.each do |argument|

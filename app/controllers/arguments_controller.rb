@@ -4,7 +4,13 @@ class ArgumentsController < ApplicationController
   # GET /arguments
   # GET /arguments.json
   def index
+    active
+  end
+
+
+  def decided
     @arguments = Argument.all.order("abs(validity) desc").page params[:page]
+    render :index
   end
 
   def newest
@@ -13,7 +19,7 @@ class ArgumentsController < ApplicationController
   end
 
   def active
-    @arguments = Argument.all.order("updated_at desc").page params[:page]
+    @arguments = Argument.all.order("updated_at desc, all_sum desc").page params[:page]
     render :index
   end
 
