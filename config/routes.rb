@@ -15,9 +15,9 @@ Rails.application.routes.draw do
   resources :arguments, except: [:edit, :update, :destroy] do
     collection do
       get 'active'
-      get 'decided'
       get 'popular'
       get 'controversial'
+      get 'decided'
       get 'valid'
       get 'invalid'
       get 'newest'
