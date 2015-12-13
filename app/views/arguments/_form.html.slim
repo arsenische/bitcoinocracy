@@ -1,8 +1,9 @@
 = form_for @argument, html: { class: "form form-vertical argument" } do |f|
   .form-group
-    = f.label :statement, :class => 'control-label'
+    p Please keep the statement short and simple, e. g. "God exists".
+    p When users vote on it, the prefix "I believe that " or "I doubt that " will be added depending on their choice.
     .controls
-      = f.text_field :statement, :class => 'form-control'
+      = f.text_field :statement, :class => 'form-control', placeholder: "Your statement"
     = f.error_span(:statement)
   = f.submit "Submit", :class => 'btn btn-primary'
   '
