@@ -56,7 +56,7 @@
           - addresses.each do |address|
             tr
               td
-                =address.bitcoin_address
+                =link_to address.bitcoin_address, address_path(address.bitcoin_address)
               td
                 =btc_human address.balance
 

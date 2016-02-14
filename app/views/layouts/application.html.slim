@@ -11,11 +11,13 @@ html
       = menu_group
         = menu_item "Home", root_path
         = menu_item t("arguments.index.new"), new_argument_path
-        / = menu_item "Arguments", arguments_path          
+        = menu_item t("addresses.index"), addresses_path
 
     .container
       - if flash[:error]
         .error.bg-danger =h flash[:error]
+      - if flash[:alert]
+        .error.bg-danger =h flash[:alert]
       - if flash[:notice]
         .notice.bg-success =h flash[:notice]
 

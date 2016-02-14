@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     resources :signatures, except: [:edit, :update, :destroy]
   end
 
+  resources :addresses
+
 
   # Example resource route with options:
   #   resources :products do

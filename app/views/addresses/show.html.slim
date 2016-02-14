@@ -1,0 +1,9 @@
+- title "Signed by #{@address.bitcoin_address}"
+h1 #{@address.bitcoin_address}
+.lead Balance: #{btc_human @address.balance}
+.lead Statements signed:
+
+ul
+  - @address.signatures.shuffle.each do |signature|
+    li.lead
+      = link_to signature.message, argument_path(signature.argument), class: (signature.negation? ? 'text-danger' : 'text-success')

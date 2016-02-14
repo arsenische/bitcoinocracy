@@ -1,0 +1,19 @@
+- model_class = BitcoinAddress
+- title "Bitcoin addresses"
+
+h1 =t '.title', :default => model_class.model_name.human.pluralize.titleize
+
+form.navbar-form role="search" action="#{addresses_path}" method="get"
+  .input-group
+    input.form-control type="text" placeholder="Go to bitcoin address..." name="bitcoin_address"
+    span.input-group-btn
+      button.btn.btn-default type="submit"
+       span.fa.fa-search aria-hidden="true"
+
+div
+  - @addresses.each do |address|
+    div
+      | #{btc_human address.balance}: 
+      = link_to address.bitcoin_address, address_path(address.bitcoin_address)
+
+= paginate @addresses, :theme => 'twitter-bootstrap-3'
