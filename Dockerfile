@@ -14,7 +14,10 @@ RUN apt-get update -qq \
 	libqt4-webkit \
 	libqt4-dev \
 	xvfb \
-	nodejs
+	nodejs \
+	&& apt-get clean \
+	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
