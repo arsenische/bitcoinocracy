@@ -17,7 +17,7 @@ Data structure
 Argument
 	statement
 	validity
-	
+
 Signature
 	argument_id
 	bitcoin_address_id
@@ -37,6 +37,24 @@ For each argument calculate validity: `validity = sum(pro bitcoin balances) - su
 Todo
 ----
 * https://github.com/arsenische/bitcoinocracy/issues
-* Pagination, search, compare arguments (A vs B), etc...
+* Search, compare arguments (A vs B), etc...
 * Chat or comments on the argument's page?
 * Optional user accounts? Compound arguments? Logical inference?
+
+Docker instructions
+-------
+
+Build the image:
+
+`docker build -t arsenische/bitcoinocracy .`
+
+Run the container (please change the SECRET_KEY_BASE and DATABASE_URL before running):
+
+~~~~
+docker run \
+	-p 80:3000 \
+	-e "SECRET_KEY_BASE=4c047431559b10dfd6fc5c27d586fec43f749c9d47b3041adb0daf26e27dc440fc3808d571b923610580426aecd1bcfe4ae704348a7a1c876223643265f65f25" \
+	-e "DATABASE_URL=postgres://username:password@example.com:5432/database" \
+	--name="bitcoinocracy" \
+	arsenische/bitcoinocracy
+~~~~
