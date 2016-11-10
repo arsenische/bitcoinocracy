@@ -1,6 +1,6 @@
 Kaminari.configure do |config|
   if Rails.env=="development"
-    config.default_per_page = 3
+    config.default_per_page = 6
   end
   # config.max_per_page = nil
   # config.window = 4
