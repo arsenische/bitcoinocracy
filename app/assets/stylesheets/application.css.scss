@@ -56,11 +56,7 @@ body {
 }
 
 a.navbar-brand {
-  font-family: "Titillium Web", Arial, Tahoma, sans-serif;
-  text-indent: -9999px;
-  padding-left:250px;
-  background-image:url(http://i.imgur.com/CjIWkTM.png);
-  background-repeat: no-repeat;
+  padding: 0px 50px 0px 0px;
 }
 
 a, .btn-link {
@@ -156,7 +152,7 @@ input.form-control {
   width:100%;
   padding: 10px;
   color: #cccccc;
-  background-image: url(https://www.bitcoin.com/wp-content/uploads/2015/12/footer_bg.jpg);
+  background-image: image-url('footer_bg.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
