@@ -21,12 +21,16 @@
   box-sizing: content-box;
 }
 
-/* 
-  vote.bitcoin.com 
+/*
+  vote.bitcoin.com
   updated css to give it basic look and feel, will need some tweaks
 */
 
 body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
   font-family: "Titillium Web", Arial, Tahoma, sans-serif;
 }
 
@@ -54,9 +58,9 @@ body {
 a.navbar-brand {
   font-family: "Titillium Web", Arial, Tahoma, sans-serif;
   text-indent: -9999px;
-  padding-left:250px; 
+  padding-left:250px;
   background-image:url(http://i.imgur.com/CjIWkTM.png);
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
 }
 
 a, .btn-link {
@@ -68,7 +72,7 @@ a:hover {
   text-decoration:none;
 }
 
-.container h1 {    
+.container h1 {
   margin-top:-3px;
   font-size: 42px;
   line-height: 42px;
@@ -95,13 +99,13 @@ a:hover {
 
 .bg-success {
 padding:10px;
-border-radius:10px; 
+border-radius:10px;
 border:1px solid #c2efae;
 }
 
 .bg-danger {
   padding:10px;
-  border-radius:10px; 
+  border-radius:10px;
   border:1px solid #efc9c9;
 }
 
@@ -157,6 +161,12 @@ input.form-control {
   background-position: center center;
   background-repeat: no-repeat;
   background-color: #333333;
+
+  /* always on the bottom */
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .pagination li.page.active a {
@@ -168,5 +178,9 @@ input.form-control {
 }
 
 .pagination li.page a, li.next_page a, li.last.next a {
-color:#8b8b8b;
+  color:#8b8b8b;
+}
+
+#toggle_button {
+  font-size: 1.8em;
 }
