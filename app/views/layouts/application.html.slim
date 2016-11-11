@@ -22,10 +22,11 @@ html
         .notice.bg-success =h flash[:notice]
 
       = yield
-      .footer
-        hr
+
+    .footer
+      .container
         a.pull-right href="https://github.com/arsenische/bitcoinocracy/issues/new" target="_blank" Report a bug
-        p 
+        p
           a href="http://bitcoinocracy.com" Bitcoinocracy.com
           |. Source code is available at 
           a href="https://github.com/arsenische/bitcoinocracy/" target="_blank" GitHub
