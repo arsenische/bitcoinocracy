@@ -5,6 +5,7 @@ html
     = display_meta_tags site: 'Bitcoinocracy', separator: "&mdash;".html_safe
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = render 'layouts/google_analytics'
     = csrf_meta_tags
   body
     = nav_bar static: :top, brand: image_tag('bitcoin.com.png', alt: ''), responsive: true
