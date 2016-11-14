@@ -7,7 +7,7 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    = nav_bar static: :top, brand: "Bitcoinocracy", responsive: true
+    = nav_bar static: :top, brand: image_tag('bitcoin.com.png', alt: ''), responsive: true
       = menu_group
         = menu_item "Home", root_path
         = menu_item t("arguments.index.new"), new_argument_path
@@ -22,10 +22,11 @@ html
         .notice.bg-success =h flash[:notice]
 
       = yield
-      .footer
-        hr
+
+    .footer
+      .container
         a.pull-right href="https://github.com/arsenische/bitcoinocracy/issues/new" target="_blank" Report a bug
-        p 
+        p
           a href="http://bitcoinocracy.com" Bitcoinocracy.com
           |. Source code is available at 
           a href="https://github.com/arsenische/bitcoinocracy/" target="_blank" GitHub
