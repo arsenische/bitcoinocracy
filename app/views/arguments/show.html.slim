@@ -32,7 +32,7 @@
 
 .row
   .col-md-12
-    p 
+    p
       h2
         .pull-left
           = model_class.human_attribute_name(:validity) + ': ' + btc_human(@argument.validity)
@@ -48,7 +48,10 @@
           a.addthis_counter.addthis_bubble_style
         / AddThis Button END
 
-        small =link_to "see all signatures", argument_path(@argument, :json), class:"btn btn-small btn-link"
+        small
+          =link_to "See all signatures", argument_path(@argument, :json), class:"btn btn-small btn-link"
+          | |
+          =link_to "Discuss this argument on the Bitcoin forum", "https://forum.bitcoin.com/bitcoin-discussion/", class:"btn btn-small btn-link"
 
 
 .row
@@ -59,7 +62,7 @@
 
 .row
     - [@argument.pros, @argument.cons].each_with_index do |addresses, i|
-      .col-md-6     
+      .col-md-6
         table class="table #{i==0 ? 'bg-success' : 'bg-danger'}"
           - addresses.each do |address|
             tr
