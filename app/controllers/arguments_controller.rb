@@ -39,7 +39,7 @@ class ArgumentsController < ApplicationController
   end
 
   def controversial
-    @arguments = Argument.all.order("min_sum desc").page params[:page]
+    @arguments = Argument.controversial.order("min_sum desc, all_sum desc").page params[:page]
     render :index
   end
 
