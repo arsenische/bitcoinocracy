@@ -180,3 +180,21 @@ input.form-control {
 #toggle_button {
   font-size: 1.8em;
 }
+
+.validity-box {
+  .validity {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.1;
+    box-sizing: border-box;
+  }
+  .links {
+    line-height: 0px;
+    .first {
+      padding-left: 0px;
+    }
+    a {
+      padding-top:0px;
+    }
+  }
+}

@@ -33,25 +33,23 @@
 .row
   .col-md-12
     p
-      h2
-        .pull-left
+      .validity-box.pull-left
+        .validity
           = model_class.human_attribute_name(:validity) + ': ' + btc_human(@argument.validity)
-
-
-        / AddThis Button BEGIN
-        .addthis_toolbox.addthis_default_style.addthis_32x32_style.pull-right addthis:data_track_clickback="false" addthis:data_track_addressbar="false" addthis:ui_language="#{I18n.locale}"
-          a.addthis_button_preferred_1
-          a.addthis_button_preferred_2
-          a.addthis_button_preferred_3
-          a.addthis_button_preferred_4
-          a.addthis_button_compact
-          a.addthis_counter.addthis_bubble_style
-        / AddThis Button END
-
-        small
-          =link_to "See all signatures", argument_path(@argument, :json), class:"btn btn-small btn-link"
+        .links
+          =link_to "See all signatures", argument_path(@argument, :json), class:"btn btn-small btn-link first"
           | |
-          =link_to "Discuss this argument on the Bitcoin forum", "https://forum.bitcoin.com/bitcoin-discussion/", class:"btn btn-small btn-link"
+          =link_to "Discuss this on the Bitcoin forum", "https://forum.bitcoin.com/bitcoin-discussion/", class:"btn btn-small btn-link"
+
+      / AddThis Button BEGIN
+      .addthis_toolbox.addthis_default_style.addthis_32x32_style.pull-right addthis:data_track_clickback="false" addthis:data_track_addressbar="false" addthis:ui_language="#{I18n.locale}"
+        a.addthis_button_preferred_1
+        a.addthis_button_preferred_2
+        a.addthis_button_preferred_3
+        a.addthis_button_preferred_4
+        a.addthis_button_compact
+        a.addthis_counter.addthis_bubble_style
+      / AddThis Button END
 
 
 .row
