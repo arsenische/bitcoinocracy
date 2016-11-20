@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :update_bitcoin_balance # since we don't yet have a background task, we need this hack :(
 
-  def update_bitcoin_balance    
+  def update_bitcoin_balance
     return if rand > 0.9 # don't slowdown 90% of requests
 
     if BitcoinAddress.where('updated_at > ?',10.seconds.ago).empty? # don't DOS blockchain.info
@@ -14,7 +14,10 @@ class ApplicationController < ActionController::Base
         bitcoin_address.update_balance
       end
     end
+  end
 
+  def after_sign_in_path_for(resource)
+    admin_root_path
   end
 
 end

@@ -28,6 +28,7 @@ div role="navigation"
     li class="#{action_name=='invalid' ? 'active' : ''}" =link_to "Invalid", invalid_arguments_path
     li class="#{action_name=='active' ? 'active' : ''}" =link_to "Active", active_arguments_path
     li class="#{action_name=='newest' ? 'active' : ''}" =link_to "Newest", newest_arguments_path
+    li class="#{action_name=='hidden' ? 'active' : ''}" =link_to "Hidden", hidden_arguments_path
 
 table.table
   - @arguments.each do |argument|

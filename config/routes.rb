@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  devise_for :users
+  namespace :admin do
+    resources :arguments, only: [:index, :show] do
+      member do
+        get :hide
+        get :unhide
+      end
+    end
+    resources :bitcoin_addresses, only: [:index, :show]
+    resources :signatures, only: [:index, :show]
+    resources :users
+    root to: "arguments#index"
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -21,6 +35,7 @@ Rails.application.routes.draw do
       get 'invalid'
       get 'active'
       get 'newest'
+      get 'hidden'
     end
     resources :signatures, except: [:edit, :update, :destroy]
   end
