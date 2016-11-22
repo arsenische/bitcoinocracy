@@ -42,6 +42,7 @@ Rails.application.routes.draw do
 
   resources :addresses
 
+  get 'faq', to: "faq#index"
 
   # Example resource route with options:
   #   resources :products do

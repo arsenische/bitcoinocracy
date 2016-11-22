@@ -13,6 +13,7 @@ html
         = menu_item "Home", root_path
         = menu_item t("arguments.index.new"), new_argument_path
         = menu_item t("addresses.index"), addresses_path
+        = menu_item t("faq"), faq_path
 
     .container
       - if flash[:error]
