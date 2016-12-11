@@ -10,7 +10,7 @@ module Admin
 
     # Define a custom finder by overriding the `find_resource` method:
     def find_resource(param)
-      Argument.find_by!(slug: param)
+      Argument.friendly.find(param)
     end
 
     def hide
@@ -27,8 +27,7 @@ module Admin
 
     private
       def argument
-        Argument.find_by!(slug: params[:id]) ||
-        Argument.find_by!(id: params[:id])
+        Argument.friendly.find(params[:slug] || params[:id])
       end
   end
 end
