@@ -2,7 +2,7 @@ doctype html
 html
   head
     / title Bitcoinocracy
-    = display_meta_tags site: 'Vote.bitcoin.com', separator: "&mdash;".html_safe
+    = display_meta_tags site: 'Bitcoinocracy', separator: "&mdash;".html_safe
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = render 'layouts/google_analytics'
@@ -30,6 +30,6 @@ html
       .container
         a.pull-right href="https://github.com/bitcoin-portal/bitcoinocracy/issues/new" target="_blank" Report a bug
         p
-          a href="http://vote.bitcoin.com" Vote.bitcoin.com
+          a href="http://vote.bitcoin.com" Bitcoinocracy
           |. Source code is available at 
           a href="https://github.com/bitcoin-portal/bitcoinocracy/" target="_blank" GitHub.
