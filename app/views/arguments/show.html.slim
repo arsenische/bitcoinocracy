@@ -35,7 +35,7 @@
     p
       .validity-box.pull-left
         .validity
-          = model_class.human_attribute_name(:validity) + ': ' + btc_human(@argument.validity)
+          = raw model_class.human_attribute_name(:validity) + ': ' + btc_human(@argument.validity)
         .links
           =link_to "See all signatures", argument_path(@argument, :json), class:"btn btn-small btn-link first"
           | |
