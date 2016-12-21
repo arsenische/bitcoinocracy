@@ -17,3 +17,9 @@
 
 # Ignore local docker-compose .env settings
 /.env
+
+# Ignore generated styleguide files
+/styleguide
+
+# Ignore node dependencies
+/node_modules
