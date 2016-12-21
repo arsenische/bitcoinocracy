@@ -1,0 +1,27 @@
+.arrow {
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 1.0em;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  transition: border-color 0.3s ease;
+
+  &.up {
+    border-width: 0 0.4em 0.5em 0.4em;
+    border-color: transparent transparent #666666 transparent;
+
+    &:hover {
+      border-color: transparent transparent #7bdc08 transparent;
+    }
+  }
+
+  &.down {
+    border-width: 0.5em 0.4em 0 0.4em;
+    border-color: #666666 transparent transparent transparent;
+
+    &:hover {
+      border-color: #f33535 transparent transparent transparent;
+    }
+  }
+}
