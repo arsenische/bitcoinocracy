@@ -26,10 +26,14 @@
   updated css to give it basic look and feel, will need some tweaks
 */
 
-body {
+html {
+  min-height: 100%;
   position: relative;
+}
+
+body {
   margin: 0;
-  padding-bottom: 6rem;
+  padding-bottom: 51px;
   min-height: 100%;
   font-family: "Titillium Web", Arial, Tahoma, sans-serif;
 }

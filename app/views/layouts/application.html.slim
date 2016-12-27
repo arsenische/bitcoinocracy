@@ -9,22 +9,23 @@ html
     = csrf_meta_tags
     link rel="shortcut icon" href="#{image_url('favicon.png')}" type="image/x-icon"
   body
-    = nav_bar static: :top, brand: image_tag('bitcoin.com.png', alt: ''), brand_link: 'https://bitcoin.com', responsive: true
-      = menu_group
-        = menu_item "Home", root_path
-        = menu_item t("arguments.index.new"), new_argument_path
-        = menu_item t("addresses.index"), addresses_path
-        = menu_item t("faq"), faq_path
+    div
+      = nav_bar static: :top, brand: image_tag('bitcoin.com.png', alt: ''), brand_link: 'https://bitcoin.com', responsive: true
+        = menu_group
+          = menu_item "Home", root_path
+          = menu_item t("arguments.index.new"), new_argument_path
+          = menu_item t("addresses.index"), addresses_path
+          = menu_item t("faq"), faq_path
 
-    .container
-      - if flash[:error]
-        .error.bg-danger =h flash[:error]
-      - if flash[:alert]
-        .error.bg-danger =h flash[:alert]
-      - if flash[:notice]
-        .notice.bg-success =h flash[:notice]
+      .container
+        - if flash[:error]
+          .error.bg-danger =h flash[:error]
+        - if flash[:alert]
+          .error.bg-danger =h flash[:alert]
+        - if flash[:notice]
+          .notice.bg-success =h flash[:notice]
 
-      = yield
+        = yield
 
     .footer
       .container
