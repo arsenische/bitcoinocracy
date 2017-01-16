@@ -3,7 +3,7 @@ Argument List Item
 
 Style for argument list item
 
-Styleguide 1.1
+Styleguide 2.1
 */
 
   /*
@@ -29,45 +29,13 @@ Styleguide 1.1
     </div>
   </div>
 
-  Styleguide 1.1.1
+  Styleguide 2.1.1
   */
 
   /*
-  Vote button styles
+  Vote button style A
 
   Default style for an argument
-
-  markup:
-  <div class="listitem-argument positive">
-    <div class="title">Block size limit should be increased to 8 mb as soon as possible</div>
-    <div class="summary">
-      <div class="summary-panel">
-        <div class="vote-up"><a href="#"><span class="arrow up"></span></a></div>
-        <div class="amount" title="5890.76742900">5890.76 <span class="currency">BTC</span></div>
-        <div class="vote-down"><a href="javascript:;"><span class="arrow down"></span></a></div>
-      </div>
-    </div>
-  </div>
-  <div class="listitem-argument positive">
-    <div class="title">Block size limit should be increased to 8 mb as soon as possible</div>
-    <div class="summary">
-      <div class="summary-panel">
-        <div class="amount" title="5890.76742900">5890.76 <span class="currency">BTC</span></div>
-      </div>
-      <div class="vote-panel">
-        <a href="javascript:;" class="vote-up"><span class="arrow up"></span></a>
-        <a href="javascript:;" class="vote-down"><span class="arrow down"></span></a>
-      </div>
-    </div>
-  </div>
-
-  Styleguide 1.1.2
-  */
-
-  /*
-  Themes
-
-  Theme options for argument list item
 
   default                              - Default theme (light)
   .theme-dark                          - Dark theme
@@ -83,6 +51,18 @@ Styleguide 1.1
       </div>
     </div>
   </div>
+
+  Styleguide 2.1.2
+  */
+  /*
+  Vote button style B
+
+  Default style for an argument
+
+  default                              - Default theme (light)
+  .theme-dark                          - Dark theme
+
+  markup:
   <div class="listitem-argument positive {$modifiers}">
     <div class="title">Block size limit should be increased to 8 mb as soon as possible</div>
     <div class="summary">
@@ -96,7 +76,7 @@ Styleguide 1.1
     </div>
   </div>
 
-  Styleguide 1.1.3
+  Styleguide 2.1.3
   */
 
 .listitem-argument {
@@ -104,22 +84,22 @@ Styleguide 1.1
   align-items: stretch;
   box-shadow: 0 0 10px #ccc;
   background-color: #FFFFFF;
-  color: #3c3c3c;
+  color: $dark;
 
   + .listitem-argument {
-    margin-top: 10px;
+    margin-top: 15px;
   }
 
-  &:after {
+  &:before {
     content: '';
     display: block;
     border-left: 12px solid #f9b016;
   }
 
-  &.positive:after {
+  &.positive:before {
     border-left: 12px solid #7bdc08;
   }
-  &.negative:after {
+  &.negative:before {
     border-left: 12px solid #f33535;
   }
 
@@ -188,6 +168,7 @@ Styleguide 1.1
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      max-width: 100%;
 
       @media (min-width: $mobile) {
         font-size: 1.5em;

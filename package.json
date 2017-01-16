@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/bitcoin-portal/bitcoinocracy#readme",
   "devDependencies": {
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-sass": "^3.0.0",

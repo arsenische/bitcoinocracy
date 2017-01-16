@@ -1,0 +1,59 @@
+/*
+Navigation - Secondary
+
+Secondary site navigation
+
+markup:
+<nav class="secondary">
+  <div class="content">
+    <ul>
+      <li>
+        <a href="javascript:;">Home</a>
+      </li>
+      <li>
+        <a href="javascript:;">Submit</a>
+      </li>
+      <li>
+        <a href="javascript:;">Addresses</a>
+      </li>
+      <li>
+        <a href="javascript:;">How it Works</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+Styleguide 2.4
+*/
+nav {
+  &.secondary {
+    padding: 7px 20px;
+    background-color: #F8F8F8;
+    border-bottom: 1px solid #ddd;
+
+    .content {
+      margin: 0 auto;
+      max-width: $content-width-max;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        li {
+          display: inline-block;
+
+          + li {
+            margin-left: 30px;
+          }
+
+          a {
+            display: block;
+            padding:7px 0;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

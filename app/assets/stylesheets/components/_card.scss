@@ -1,0 +1,60 @@
+/*
+Card
+
+Card to display content
+
+markup:
+<div class="card">
+  <h3>Tools</h3>
+  <div class="content">
+    <nav>
+      <ul>
+        <li><a href="javascript:;">Tool #1</a></li>
+        <li><a href="javascript:;">Tool #2</a></li>
+        <li><a href="javascript:;">Tool #3</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+Styleguide 2.5
+*/
+.card {
+  box-shadow: 0 0 10px #ccc;
+
+  .image {
+
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    padding: 15px 20px;
+    border-bottom: 1px solid #CCCCCC;
+    margin-bottom: 0;
+    font-weight: 500;
+    color: #8b8b8b;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  nav {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+
+      li {
+        a {
+          display: block;
+          text-decoration: none;
+          padding: 7px 0;
+        }
+
+        + li {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}

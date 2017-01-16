@@ -1,0 +1,37 @@
+/*
+Sidebar
+
+markup:
+<div class="sidebar">
+  <div class="section">
+    <a href="javascript:;" class="button block">Submit your proposition</a>
+  </div>
+  <div class="section">
+    <sg-insert>2.5</sg-insert>
+  </div>
+</div>
+
+sg-wrapper:
+<div class="page-content">
+  <div class="main-section"></div>
+  <sg-wrapper-content/>
+</div>
+
+Styleguide 3.3
+*/
+
+.sidebar {
+  flex: 0 1 25%;
+  margin-top: 40px;
+
+  @media (min-width: $desktop) {
+    margin-top: 0;
+    margin-left: 45px;
+  }
+
+  .section {
+    + .section {
+      margin-top: 30px;
+    }
+  }
+}

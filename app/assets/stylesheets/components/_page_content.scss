@@ -1,0 +1,31 @@
+/*
+Page Content
+
+Container for page content
+
+markup:
+<div class="page-content">
+  <div class="main-section">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac consectetur orci. Aenean efficitur lacus eu metus varius ullamcorper. Nullam interdum orci dapibus, aliquam tellus vitae, vestibulum nisl. Aenean ornare purus ac ligula finibus vehicula. Nulla molestie pharetra enim at tincidunt. Suspendisse sit amet urna ipsum. Nunc semper pulvinar ipsum, faucibus aliquet ex auctor quis. Nullam tincidunt lobortis est eu accumsan. Fusce nec libero et turpis euismod porta. Cras quis convallis ligula, non aliquet mi. Proin tempus, arcu et auctor viverra, justo justo iaculis velit, hendrerit vehicula metus mi consectetur odio. Aliquam erat volutpat. Vestibulum venenatis odio at vestibulum rutrum. Nullam vestibulum fringilla arcu, accumsan vehicula leo fermentum vitae. Duis vitae mi diam.</p>
+    <p>Fusce convallis vel magna a suscipit. Suspendisse potenti. Sed augue diam, eleifend ut rutrum id, iaculis nec leo. Morbi tincidunt dolor mi, a gravida lectus volutpat ut. Sed dignissim velit lacus, ac venenatis felis rutrum nec. Donec maximus ultricies magna a molestie. Praesent consectetur bibendum erat et volutpat.</p>
+    <p>Morbi malesuada, felis ac tincidunt pretium, libero lacus consectetur justo, id aliquam risus nisl porttitor massa. Sed sit amet odio quis nibh porta rutrum. Aliquam sagittis, ipsum in pulvinar consectetur, felis magna blandit leo, ut vestibulum ipsum odio eu elit. Donec dignissim dui sit amet ipsum tincidunt, ac tincidunt ex bibendum. Maecenas dapibus ornare nulla, vel ullamcorper leo cursus et. Praesent aliquam neque dui, vitae consectetur est placerat imperdiet. Donec pretium ex dolor, eget mollis diam consectetur eget. Etiam at dignissim turpis. Sed felis urna, feugiat vitae eleifend sed, molestie et enim.</p>
+  </div>
+</div>
+
+Styleguide 3.2
+*/
+.page-content {
+  display: flex;
+  margin: 0 auto;
+  max-width: $content-width-max;
+  padding: 30px;
+  flex-direction: column;
+
+  @media (min-width: $desktop) {
+    flex-direction: row;
+  }
+
+  .main-section {
+    flex: 1 1 auto;
+  }
+}

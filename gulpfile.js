@@ -5,6 +5,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var surge = require('gulp-surge');
 var outputPath = 'styleguide';
 var source = './app/assets/stylesheets/**/*.scss';
+var del = require('del');
 
 gulp.task('styleguide:generate', function() {
   return gulp.src(source)
@@ -45,16 +46,27 @@ gulp.task('styleguide:applystyles', function() {
 
 gulp.task('styleguide:build', ['styleguide:generate', 'styleguide:applystyles']);
 
-gulp.task('styleguide:watch', ['styleguide:build'], function () {
+gulp.task('styleguide:watch', ['styleguide:build', 'copy:images'], function () {
     console.log('View the styleguide in your browser under http://localhost:3500/');
     // Start watching changes and update styleguide whenever changes are detected
     // Styleguide automatically detects existing server instance
     gulp.watch(['app/assets/stylesheets/**/*.scss'], ['styleguide:build']);
 });
 
-gulp.task('styleguide:deploy', ['styleguide:build'], function () {
+gulp.task('styleguide:deploy', ['styleguide:build', 'copy:images'], function () {
   return surge({
     project: './styleguide',
     domain: 'bitcoinocracy-styleguide.surge.sh'
   })
-})
+});
+
+gulp.task('copy:images', ['clean'], function () {
+    return gulp.src(['app/assets/images/**/*'], {
+        base: 'app'
+    }).pipe(gulp.dest('styleguide'));
+});
+
+gulp.task('clean', function() {
+  del(['./styleguide/assets/images']).then(function (paths) {
+  })
+});

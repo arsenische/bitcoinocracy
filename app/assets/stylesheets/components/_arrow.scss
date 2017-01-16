@@ -1,3 +1,14 @@
+/*
+Arrow
+
+.up                            - Up arrow
+.down                          - Down arrow
+
+markup:
+<div class="arrow {$modifiers}"></div>
+
+Styleguide 1.1
+*/
 .arrow {
   display: inline-block;
   box-sizing: border-box;

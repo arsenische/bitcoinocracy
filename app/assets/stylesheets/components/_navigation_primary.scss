@@ -1,0 +1,153 @@
+/*
+Navigation - Primary
+
+Primary site navigation
+
+markup:
+<nav class="primary" ng-class="{activated: navActivated}">
+  <div class="content">
+    <section>
+      <sg-insert>2.3.1</sg-insert>
+      <sg-insert>2.3.1</sg-insert>
+    </section>
+    <section>
+      <sg-insert>2.3.1</sg-insert>
+      <sg-insert>2.3.1</sg-insert>
+    </section>
+    <section>
+      <sg-insert>2.3.1</sg-insert>
+      <sg-insert>2.3.1</sg-insert>
+    </section>
+    <section>
+      <sg-insert>2.3.1</sg-insert>
+      <sg-insert>2.3.1</sg-insert>
+    </section>
+    <section>
+      <sg-insert>2.3.1</sg-insert>
+      <sg-insert>2.3.1</sg-insert>
+    </section>
+  </div>
+</nav>
+
+sg-wrapper:
+<nav class="dummy">
+  <sg-wrapper-content/>
+</nav>
+
+Styleguide 2.3
+*/
+  /*
+  Navigation category
+
+  markup:
+  <div class="navigation-block">
+    <div class="title">Nav section title</div>
+    <ul>
+      <li><a href="javascript:;">Nav link</a></li>
+      <li><a href="javascript:;">Nav link</a></li>
+      <li><a href="javascript:;">Nav link</a></li>
+      <li><a href="javascript:;">Nav link</a></li>
+      <li><a href="javascript:;">Nav link</a></li>
+    </ul>
+  </div>
+
+  sg-wrapper:
+  <nav class="primary dummy">
+    <div class="content">
+      <section>
+        <sg-wrapper-content/>
+      </section>
+    </div>
+  </nav>
+
+  Styleguide 2.3.1
+  */
+
+nav {
+  &.primary {
+    background: rgba(25,25,25,0.95);
+    position: fixed;
+    z-index: 5;
+    top: $nav-primary-offset;
+    left: 0;
+    width: 100%;
+    max-height: 100vh;
+    overflow: auto;
+    transition: transform 0.4s $easing;
+    transform: translate(0,-100%);
+    pointer-events: none;
+
+    &.activated {
+      transform: translate(0,0);
+      pointer-events: all;
+    }
+
+    .content {
+      max-width: $content-width-max;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 2em 1em 1em;
+      margin: 0 auto;
+
+      section {
+        flex: 0 0 100%;
+
+        @media (min-width: $tablet) {
+          flex: 0 0 33.3333333%;
+        }
+
+        @media (min-width: $desktop) {
+          flex: 0 0 20%;
+        }
+
+        .navigation-block {
+          + .navigation-block {
+            margin-top: 2em;
+          }
+
+          .title {
+            color: #FFF;
+            text-decoration: none;
+            font-size: 1.15em;
+            margin: 0 0 0.5em;
+          }
+
+          ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+
+            li {
+              + li {
+                margin-top: 3px;
+              }
+
+              a {
+                display: block;
+                color: #AAA;
+                text-decoration: none;
+                font-size: 0.85em;
+                transition: colo 0.2s $easing;
+
+                &:hover {
+                  color: #FFF;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.dummy {
+  nav.primary {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+    transform: translate(0,0);
+    pointer-events: all;
+  }
+}
