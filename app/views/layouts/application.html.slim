@@ -9,13 +9,37 @@ html
     = csrf_meta_tags
     link rel="shortcut icon" href="#{image_url('favicon.png')}" type="image/x-icon"
   body
-    div
-      = nav_bar static: :top, brand: image_tag('bitcoin.com.png', alt: ''), brand_link: 'https://bitcoin.com', responsive: true
-        = menu_group
-          = menu_item "Home", root_path
-          = menu_item t("arguments.index.new"), new_argument_path
-          = menu_item t("addresses.index"), addresses_path
-          = menu_item t("faq"), faq_path
+  
+    .header
+      .header-content
+        .logo= image_tag('logo-bitcoin.png', alt: 'Bitcoin')
+        nav
+          a href="#" Start here
+          a href="#" News
+          a href="#" Forum
+          a href="#" Game
+        #univ-hmbgr.hmbgr-wrap
+          .hmbgr
+
+    .main-wrapper
+      / = nav_bar static: :top, brand: image_tag('bitcoin.com.png', alt: ''), brand_link: 'https://bitcoin.com', responsive: true
+      /   = menu_group
+      /     = menu_item "Home", root_path
+      /     = menu_item t("arguments.index.new"), new_argument_path
+      /     = menu_item t("addresses.index"), addresses_path
+      /     = menu_item t("faq"), faq_path
+      nav.primary
+        .content
+          section
+            .navigation-block
+              .title Nav section title
+              ul
+                li
+                  a href="#" Nav link
+                  a href="#" Nav link
+                  a href="#" Nav link
+                  a href="#" Nav link
+                  a href="#" Nav link
 
       .container
         - if flash[:error]

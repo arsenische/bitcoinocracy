@@ -97,10 +97,10 @@ Styleguide 2.1
   }
 
   &.positive:before {
-    border-left: 12px solid #7bdc08;
+    border-left: 12px solid $positive;
   }
   &.negative:before {
-    border-left: 12px solid #f33535;
+    border-left: 12px solid $negative;
   }
 
   .summary {

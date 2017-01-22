@@ -26,5 +26,8 @@
     "gulp-sass": "^3.0.0",
     "gulp-surge": "^0.1.0",
     "sc5-styleguide": "^1.3.3"
+  },
+  "dependencies": {
+    "gulp-concat": "^2.6.1"
   }
 }

@@ -1,46 +1,70 @@
 - model_class = Argument
 - title "Vote with your Bitcoin signature"
 
-/ AddThis Button BEGIN
-.addthis_toolbox.addthis_default_style.addthis_32x32_style.pull-right addthis:data_track_clickback="false" addthis:data_track_addressbar="false" addthis:ui_language="#{I18n.locale}" addthis:url="http://bitcoinocracy.com"
-  a.addthis_button_preferred_1
-  a.addthis_button_preferred_2
-  a.addthis_button_preferred_3
-  a.addthis_button_preferred_4
-  a.addthis_button_compact
-  a.addthis_counter.addthis_bubble_style
-/ AddThis Button END
+.hero style="background-image: url(#{asset_path('bg/buy_slide.jpg')})"
+  .hero-content.flex-row
+    .logo
+      = image_tag('logo-bitcoin.png', alt: 'Bitcoin')
+      h1 =t '.title', :default => model_class.model_name.human.pluralize.titleize
+    .content.text-left
+      p Bitcoinocracy is a free and decentralized way to measure the Bitcoin community's stance on a given proposition.
+      p Voting requires proof of bitcoin holdings via cryptographic signature. Signed votes cannot be forged, and are fully auditable by all users.
 
-h1 =t '.title', :default => model_class.model_name.human.pluralize.titleize
+.page-content
+  .main-section
 
-.lead Bitcoinocracy is a free and decentralized way to measure the Bitcoin community's stance on a given proposition. Voting requires proof of bitcoin holdings via cryptographic signatures. Signed votes cannot be forged, and are fully auditable by all users.
+    .lead
+      
+      |  or check the existing ones:
 
-.lead
-  = link_to t('.new'), new_argument_path
-  |  or check the existing ones:
+    div role="navigation"
+      ul.nav.nav-tabs
+        li class="#{action_name=='controversial' ? 'active' : ''}" =link_to "Controversial", controversial_arguments_path
+        li class="#{action_name=='popular' ? 'active' : ''}" =link_to "Popular", popular_arguments_path
+        li class="#{action_name=='decided' ? 'active' : ''}" =link_to "Decided", decided_arguments_path
+        li class="#{action_name=='valid' ? 'active' : ''}" =link_to "Valid", valid_arguments_path
+        li class="#{action_name=='invalid' ? 'active' : ''}" =link_to "Invalid", invalid_arguments_path
+        li class="#{action_name=='active' ? 'active' : ''}" =link_to "Active", active_arguments_path
+        li class="#{action_name=='newest' ? 'active' : ''}" =link_to "Newest", newest_arguments_path
+        li class="#{action_name=='hidden' ? 'active' : ''}" =link_to "Hidden", hidden_arguments_path
 
-div role="navigation"
-  ul.nav.nav-tabs
-    li class="#{action_name=='controversial' ? 'active' : ''}" =link_to "Controversial", controversial_arguments_path
-    li class="#{action_name=='popular' ? 'active' : ''}" =link_to "Popular", popular_arguments_path
-    li class="#{action_name=='decided' ? 'active' : ''}" =link_to "Decided", decided_arguments_path
-    li class="#{action_name=='valid' ? 'active' : ''}" =link_to "Valid", valid_arguments_path
-    li class="#{action_name=='invalid' ? 'active' : ''}" =link_to "Invalid", invalid_arguments_path
-    li class="#{action_name=='active' ? 'active' : ''}" =link_to "Active", active_arguments_path
-    li class="#{action_name=='newest' ? 'active' : ''}" =link_to "Newest", newest_arguments_path
-    li class="#{action_name=='hidden' ? 'active' : ''}" =link_to "Hidden", hidden_arguments_path
+    - @arguments.each do |argument|
+      .listitem-argument class="#{argument.validity < 0 ? 'negative' : (argument.validity > 0 ? 'positive' : '')}"
+        .title= argument.statement
+        .summary
+          .summary-panel
+            .amount title="#{btc_human(argument.validity)}"
+              = btc_human(argument.validity)
+          .vote-panel
+            a.vote-up href="#{argument_path(argument)}"
+              span.arrow.up
+            a.vote-down href="#{argument_path(argument)}?doubt=1"
+              span.arrow.down
 
-table.table
-  - @arguments.each do |argument|
-    tr
-      td style="text-align:center;"
-        div
-          = link_to "", "#{argument_path(argument)}", class: "btn btn-xs fa fa-arrow-up", title: "Supported by #{btc_human(argument.pros_sum, suffix:' btc')}".html_safe
-        div class="#{argument.validity < 0 ? 'bg-danger' : (argument.validity > 0 ? 'bg-success' : '')}"
-          = btc_human(argument.validity)
-        div
-          = link_to "", "#{argument_path(argument)}?doubt=1", class: "btn btn-xs fa fa-arrow-down", title: "Opposed by #{btc_human(argument.cons_sum, suffix:' btc')}"
-      td style='vertical-align:middle' 
-        = link_to "#{argument.statement}", argument_path(argument), class: "lead"
-
-= paginate @arguments, :theme => 'twitter-bootstrap-3'
+    = paginate @arguments, :theme => 'twitter-bootstrap-3'
+  
+  .sidebar
+    .section
+      a.button.block href="#{new_argument_path}" #{t('.new')}
+    .section
+      / AddThis Button BEGIN
+      .addthis_toolbox.addthis_default_style.addthis_32x32_style.pull-right addthis:data_track_clickback="false" addthis:data_track_addressbar="false" addthis:ui_language="#{I18n.locale}" addthis:url="http://bitcoinocracy.com"
+        a.addthis_button_preferred_1
+        a.addthis_button_preferred_2
+        a.addthis_button_preferred_3
+        a.addthis_button_preferred_4
+        a.addthis_button_compact
+        a.addthis_counter.addthis_bubble_style
+      / AddThis Button END
+    .section
+      .card
+        h3 Tools
+        .content
+          nav
+            ul
+              li
+                a href="#" Tool #1
+                a href="#" Tool #2
+                a href="#" Tool #3
+                a href="#" Tool #4
+                a href="#" Tool #5

@@ -47,12 +47,6 @@ Styleguide 1.2
       }
   }
 
-  .hmbgr-wrap:hover .hmbgr,
-  .hmbgr-wrap:hover .hmbgr:before,
-  .hmbgr-wrap:hover .hmbgr:after {
-    background-color: white;
-  }
-
   .hmbgr,
   .hmbgr:before,
   .hmbgr:after {
@@ -65,6 +59,12 @@ Styleguide 1.2
     position: absolute;
     cursor: pointer;
     transition: transform 0.5s, background-color 0.2s;
+  }
+
+  .hmbgr-wrap:hover .hmbgr,
+  .hmbgr-wrap:hover .hmbgr:before,
+  .hmbgr-wrap:hover .hmbgr:after {
+    background-color: white;
   }
 
   &.activated {

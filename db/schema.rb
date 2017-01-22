@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20161119193533) do
   add_index "audits", ["user_id", "user_type"], name: "user_index"
 
   create_table "bitcoin_addresses", force: :cascade do |t|
-    t.string   "bitcoin_address", limit: 255
-    t.integer  "balance",         limit: 8,   default: 0
+    t.string   "bitcoin_address"
+    t.integer  "balance",         limit: 8, default: 0
     t.datetime "updated_at"
   end
 
@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(version: 20161119193533) do
 
   create_table "signatures", id: false, force: :cascade do |t|
     t.integer "argument_id"
-    t.boolean "negation",                       default: false
-    t.string  "signature",          limit: 255,                 null: false
+    t.boolean "negation",           default: false
+    t.string  "signature",                          null: false
     t.integer "bitcoin_address_id"
   end
 

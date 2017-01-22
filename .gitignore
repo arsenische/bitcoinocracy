@@ -19,7 +19,7 @@
 /.env
 
 # Ignore generated styleguide files
-/styleguide
+/styleguide-documentation
 
 # Ignore node dependencies
 /node_modules

@@ -4,6 +4,7 @@ Hero
 Hero section
 
 default                            - Default (Medium) size
+.small                             - small Size
 .large                             - large Size
 
 markup:
@@ -97,6 +98,31 @@ Styleguide 2.2
 
       + p {
         margin-top: 10px;
+      }
+    }
+  }
+
+  &.small {
+    padding: 20px;
+
+    .hero-content {
+      @media (min-width: $desktop) {
+        padding: 30px 50px;
+      }
+      h1 {
+        @media (min-width: $desktop) {
+          font-size: 1.3em;
+        }
+
+        @media (min-width: $desktop-medium) {
+          font-size: 1.3em;
+        }
+      }
+
+      p {
+        @media (min-width: $desktop) {
+          font-size: 1em;
+        }
       }
     }
   }
