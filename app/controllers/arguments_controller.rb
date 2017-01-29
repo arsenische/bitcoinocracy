@@ -9,37 +9,42 @@ class ArgumentsController < ApplicationController
 
 
   def decided
-    @arguments = Argument.all.order("abs(validity) desc").page params[:page]
+    @arguments = Argument.visible.order("abs(validity) desc").page params[:page]
     render :index
   end
 
   def newest
-    @arguments = Argument.all.order("created_at desc").page params[:page]
+    @arguments = Argument.visible.order("created_at desc").page params[:page]
     render :index
   end
 
   def active
-    @arguments = Argument.all.order("updated_at desc, all_sum desc").page params[:page]
+    @arguments = Argument.visible.order("updated_at desc, all_sum desc").page params[:page]
     render :index
   end
 
   def valid
-    @arguments = Argument.all.order("validity desc").page params[:page]
+    @arguments = Argument.visible.order("validity desc").page params[:page]
     render :index
   end
 
   def invalid
-    @arguments = Argument.all.order("validity asc").page params[:page]
+    @arguments = Argument.visible.order("validity asc").page params[:page]
     render :index
   end
 
   def popular
-    @arguments = Argument.all.order("all_sum desc").page params[:page]
+    @arguments = Argument.visible.order("all_sum desc").page params[:page]
     render :index
   end
 
   def controversial
-    @arguments = Argument.all.order("min_sum desc").page params[:page]
+    @arguments = Argument.visible.controversial.order("min_sum desc, all_sum desc").page params[:page]
+    render :index
+  end
+
+  def hidden
+    @arguments = Argument.hidden.order("all_sum desc").page params[:page]
     render :index
   end
 

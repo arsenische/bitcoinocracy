@@ -6,7 +6,7 @@
     statement: @argument.pro_statement,
     signatures: @argument.pro_signatures.order('signature').map{|s|
       {
-      bitcoin_address: s.bitcoin_address.bitcoin_address,
+      bitcoin_address: s.bitcoin_address.try(:bitcoin_address),
       signature: s.signature
       }
     }

@@ -7,10 +7,14 @@ gem 'rails', '4.2.2'
 # Use sqlite3 as the database for Active Record
 group :development do
   gem 'sqlite3'
+  gem 'pry-rails'
+  gem 'pry-nav'
+  gem "i18n-tasks"
 end
 gem 'pg'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails'
+gem 'bourbon'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -54,3 +58,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'meta-tags'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem "administrate", "~> 0.3.0"
+gem "aasm"
+gem "audited"
+gem "devise"

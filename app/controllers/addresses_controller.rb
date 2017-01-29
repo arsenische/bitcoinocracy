@@ -2,7 +2,7 @@ class AddressesController < ApplicationController
 
   def index
     @addresses = BitcoinAddress.all.page params[:page]
-    
+
     redirect_to address_path(params[:bitcoin_address]) if params[:bitcoin_address].present?
   end
 

@@ -5,30 +5,32 @@ html
     = display_meta_tags site: 'Bitcoinocracy', separator: "&mdash;".html_safe
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = render 'layouts/google_analytics'
     = csrf_meta_tags
+    link rel="shortcut icon" href="#{image_url('favicon.png')}" type="image/x-icon"
   body
-    = nav_bar static: :top, brand: "Bitcoinocracy", responsive: true
-      = menu_group
-        = menu_item "Home", root_path
-        = menu_item t("arguments.index.new"), new_argument_path
-        = menu_item t("addresses.index"), addresses_path
+    div
+      = nav_bar static: :top, brand: image_tag('bitcoin.com.png', alt: ''), brand_link: 'https://bitcoin.com', responsive: true
+        = menu_group
+          = menu_item "Home", root_path
+          = menu_item t("arguments.index.new"), new_argument_path
+          = menu_item t("addresses.index"), addresses_path
+          = menu_item t("faq"), faq_path
 
-    .container
-      - if flash[:error]
-        .error.bg-danger =h flash[:error]
-      - if flash[:alert]
-        .error.bg-danger =h flash[:alert]
-      - if flash[:notice]
-        .notice.bg-success =h flash[:notice]
+      .container
+        - if flash[:error]
+          .error.bg-danger =h flash[:error]
+        - if flash[:alert]
+          .error.bg-danger =h flash[:alert]
+        - if flash[:notice]
+          .notice.bg-success =h flash[:notice]
 
-      = yield
-      .footer
-        hr
-        a.pull-right href="https://github.com/arsenische/bitcoinocracy/issues/new" target="_blank" Report a bug
-        p 
-          a href="http://bitcoinocracy.com" Bitcoinocracy.com
+        = yield
+
+    .footer
+      .container
+        a.pull-right href="https://github.com/bitcoin-portal/bitcoinocracy/issues/new" target="_blank" Report a bug
+        p
+          a href="http://vote.bitcoin.com" Bitcoinocracy
           |. Source code is available at 
-          a href="https://github.com/arsenische/bitcoinocracy/" target="_blank" GitHub
-          |  and you can also 
-          a href="https://tip4commit.com/github/arsenische/bitcoinocracy" target="_blank" support
-          |  its development.
+          a href="https://github.com/bitcoin-portal/bitcoinocracy/" target="_blank" GitHub.
