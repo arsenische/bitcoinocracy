@@ -29,6 +29,3 @@ ADD . $APP_HOME
 
 # Precompile Rails assets
 RUN SECRET_KEY_BASE=tmp bundle exec rake assets:precompile
-
-# Start puma
-CMD bundle exec puma -C config/puma.rb
