@@ -10,15 +10,17 @@
       p Bitcoinocracy is a free and decentralized way to measure the Bitcoin community's stance on a given proposition.
       p Voting requires proof of bitcoin holdings via cryptographic signature. Signed votes cannot be forged, and are fully auditable by all users.
 
+nav.secondary
+  .content
+    = menu_group
+      = menu_item "Home", root_path
+      = menu_item t("arguments.index.new"), new_argument_path
+      = menu_item t("addresses.index"), addresses_path
+      = menu_item t("faq"), faq_path
 .page-content
   .main-section
-
-    .lead
-      
-      |  or check the existing ones:
-
-    div role="navigation"
-      ul.nav.nav-tabs
+    nav.tabs role="navigation"
+      ul
         li class="#{action_name=='controversial' ? 'active' : ''}" =link_to "Controversial", controversial_arguments_path
         li class="#{action_name=='popular' ? 'active' : ''}" =link_to "Popular", popular_arguments_path
         li class="#{action_name=='decided' ? 'active' : ''}" =link_to "Decided", decided_arguments_path

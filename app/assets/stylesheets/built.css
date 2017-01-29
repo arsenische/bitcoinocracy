@@ -700,10 +700,10 @@ Styleguide 3.3
 */
 .sidebar {
   -webkit-box-flex: 0;
-  -webkit-flex: 0 1 25%;
+  -webkit-flex: 0 0 25%;
   -moz-box-flex: 0;
-  -ms-flex: 0 1 25%;
-  flex: 0 1 25%;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
   margin-top: 40px; }
   @media (min-width: 1024px) {
     .sidebar {
@@ -1056,6 +1056,134 @@ Styleguide 2.7
       color: #FFFFFF; }
 
 /*
+Tabs
+
+markup:
+<nav class="tabs">
+  <ul>
+    <li class="active"><a href="javscript:;">Link 1</a></li>
+    <li><a href="javscript:;">Link 2</a></li>
+    <li><a href="javscript:;">Link 3</a></li>
+    <li><a href="javscript:;">Link 4</a></li>
+    <li><a href="javscript:;">Link 5</a></li>
+  </ul>
+</nav>
+
+Styleguide 2.8
+*/
+.tabs {
+  max-width: 100%;
+  overflow: auto; }
+  .tabs ul {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -moz-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    margin: 0 0 35px;
+    padding: 0;
+    list-style-type: none;
+    border-bottom: 1px solid #fab915; }
+    .tabs ul li {
+      position: relative;
+      border-radius: 2px 2px 0 0; }
+      .tabs ul li a {
+        display: block;
+        padding: 10px 14px;
+        text-decoration: none;
+        color: #000000; }
+      .tabs ul li:hover {
+        background-color: #EEE; }
+      .tabs ul li.active {
+        z-index: 5;
+        border: 1px solid #fab915;
+        border-bottom: 0;
+        background-color: #fab915; }
+        .tabs ul li.active a {
+          padding: 13px 18px;
+          color: #FFF;
+          font-weight: 500; }
+      .tabs ul li + li {
+        margin-left: -1px; }
+
+/*
+Pagination
+
+markup:
+<ul class="pagination">
+  <li><a href="javscript:;">First</a></li>
+  <li><a href="javscript:;">Previous</a></li>
+  <li class="active"><a href="javscript:;">1</a></li>
+  <li><a href="javscript:;">2</a></li>
+  <li><a href="javscript:;">3</a></li>
+  <li><a href="javscript:;">4</a></li>
+  <li><a href="javscript:;">5</a></li>
+  <li><a href="javscript:;">Next</a></li>
+  <li><a href="javscript:;">Last</a></li>
+</ul>
+
+Styleguide 2.9
+*/
+.pagination {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  margin: 15px 0 0;
+  padding: 0; }
+  .pagination .page + .page,
+  .pagination .page + .prev,
+  .pagination .page + .next_page,
+  .pagination .page + .first,
+  .pagination .page + .last,
+  .pagination .prev + .page,
+  .pagination .prev + .prev,
+  .pagination .prev + .next_page,
+  .pagination .prev + .first,
+  .pagination .prev + .last,
+  .pagination .next_page + .page,
+  .pagination .next_page + .prev,
+  .pagination .next_page + .next_page,
+  .pagination .next_page + .first,
+  .pagination .next_page + .last,
+  .pagination .first + .page,
+  .pagination .first + .prev,
+  .pagination .first + .next_page,
+  .pagination .first + .first,
+  .pagination .first + .last,
+  .pagination .last + .page,
+  .pagination .last + .prev,
+  .pagination .last + .next_page,
+  .pagination .last + .first,
+  .pagination .last + .last {
+    margin-left: 3px; }
+  .pagination .page a,
+  .pagination .prev a,
+  .pagination .next_page a,
+  .pagination .first a,
+  .pagination .last a {
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid #CCC;
+    color: #AAA;
+    padding: 3px 5px; }
+  .pagination .page.active a,
+  .pagination .prev.active a,
+  .pagination .next_page.active a,
+  .pagination .first.active a,
+  .pagination .last.active a {
+    background-color: #fab915;
+    border: 1px solid #fab915;
+    color: #FFF; }
+
+/*
 Header
 
 Styles for header
@@ -1153,6 +1281,31 @@ Styleguide 3.1
   top: auto;
   left: auto;
   width: auto; }
+
+/*
+Footer
+
+markup:
+<div class="footer">
+  <div class="footer-content">
+    <p>Saint Bitts LLC. 2016 | Bitcoin.com</p>
+  </div>
+</div>
+
+sg-wrapper:
+<div class="dummy">
+  <sg-wrapper-content/>
+</div>
+
+Styleguide 3.4
+*/
+.footer {
+  background: #000000; }
+  .footer .footer-content {
+    margin: 0 auto;
+    padding: 12px;
+    max-width: 1200px;
+    color: #FFFFFF; }
 
 .text-left {
   text-align: left; }

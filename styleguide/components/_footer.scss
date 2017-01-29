@@ -1,0 +1,28 @@
+/*
+Footer
+
+markup:
+<div class="footer">
+  <div class="footer-content">
+    <p>Saint Bitts LLC. 2016 | Bitcoin.com</p>
+  </div>
+</div>
+
+sg-wrapper:
+<div class="dummy">
+  <sg-wrapper-content/>
+</div>
+
+Styleguide 3.4
+*/
+
+.footer {
+  background: #000000;
+
+  .footer-content {
+    margin: 0 auto;
+    padding: 12px;
+    max-width: $content-width-max;
+    color: #FFFFFF;
+  }
+}
