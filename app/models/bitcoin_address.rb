@@ -15,13 +15,14 @@ class BitcoinAddress < ActiveRecord::Base
 
     if res!=false
       if ( (new_balance=res.to_i) >= 0) and (new_balance != self.balance)
+        logger.info "new balance for #{self.bitcoin_address}: #{new_balance}"
         update_attribute :balance, new_balance
         arguments.each{|a|a.update_validity}
       else
         touch :updated_at # push it to the end of the queue
       end
     else
-      log.warn "failed to retrieve balance for bitcoin address #{self.bitcoin_address}"
+      logger.warn "failed to retrieve balance for bitcoin address #{self.bitcoin_address}"
     end
   end
 
