@@ -31,6 +31,8 @@ Styleguide 1.3.2
   color: $bright;
   border-radius: 5px;
   display: inline-block;
+  cursor: pointer;
+  font-size: 1em;
   text-align: center;
   padding: 11px 20px;
   text-decoration: none;
@@ -60,4 +62,19 @@ Styleguide 1.3.2
   }
 
   /* Sizes */
+}
+
+.button-group {
+  display: flex;
+  margin-top: 10px;
+
+  &.center {
+    justify-content: center;
+  }
+
+  .button {
+    + .button {
+      margin-left: 10px;
+    }
+  }
 }

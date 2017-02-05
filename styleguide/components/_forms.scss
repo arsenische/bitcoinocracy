@@ -1,0 +1,42 @@
+/*
+Form Elements
+
+Styleguide 2.10
+*/
+  /*
+  Input - Text, Email, Number, Password
+
+  markup:
+  <input type="text">
+  <input type="email">
+  <input type="number">
+  <input type="password">
+
+  Styleguide 2.10.1
+  */
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"] {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 2px;
+  padding: 10px;
+  box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.02);
+  border: 1px solid #CCC;
+  transition: all 0.2s ease;
+
+  + input[type="text"],
+  + input[type="email"],
+  + input[type="number"],
+  + input[type="password"] {
+    margin-top: 10px;
+  }
+
+  &:focus {
+    box-shadow: 0 0 10px $brand-primary;
+    outline: none;
+  }
+}

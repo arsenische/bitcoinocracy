@@ -1,4 +1,13 @@
 - model_class = Argument
-div class="page-header"
-  h1=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize
-= render :partial => "form"
+
+.hero.small style="background-image: url(#{asset_path('bg/buy_slide.jpg')})"
+  .hero-content
+    h1=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize
+    p Please keep the statement short and simple, e. g. "God exists".
+    p When users vote on it, the prefix "I believe that " or "I doubt that " will be added depending on their choice.
+
+.page-content
+  .main-section
+    = render :partial => "form"
+
+  = render :partial => "sidebar"
