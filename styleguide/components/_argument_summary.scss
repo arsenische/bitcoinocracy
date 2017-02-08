@@ -1,19 +1,20 @@
 /*
-Form Elements
+Argument summary
 
-Styleguide 2.10
+markup:
+<div class="argument-summary">
+  <h1>Block size limit should be increased to 8 mb as soon as possible</h1>
+  <div class="argument-score">
+    <div class="bar positive" style="flex-basis: 23.5%;">23.5%</div>
+    <div class="bar negative" style="flex-basis: 76.5%;">76.5%</div>
+  </div>
+  <div class="button-group">
+    <a href="#" class="button">Doubt</a>
+  </div>
+</div>
+
+Styleguide 2.11
 */
-  /*
-  Input - Text, Email, Number, Password
-
-  markup:
-  <input type="text">
-  <input type="email">
-  <input type="number">
-  <input type="password">
-
-  Styleguide 2.10.1
-  */
 
 input[type="text"],
 input[type="email"],

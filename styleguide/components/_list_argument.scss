@@ -82,9 +82,16 @@ Styleguide 2.1
 .listitem-argument {
   display: flex;
   align-items: stretch;
-  box-shadow: 0 0 10px #ccc;
+  box-shadow: 0 0 5px #eee;
+  border: 1px solid #ddd;
   background-color: #FFFFFF;
   color: $dark;
+  transition: all 0.3s $easing;
+
+  &:hover {
+    box-shadow: 0 0 15px #bbb;
+    border: 1px solid #ccc;
+  }
 
   + .listitem-argument {
     margin-top: 15px;
@@ -99,6 +106,7 @@ Styleguide 2.1
   &.positive:before {
     border-left: 12px solid $positive;
   }
+
   &.negative:before {
     border-left: 12px solid $negative;
   }
@@ -182,6 +190,18 @@ Styleguide 2.1
     align-items: center;
     padding: 10px 20px;
     font-weight: 300;
+  }
+
+  a {
+    &.title {
+      color: $dark;
+      text-decoration: none;
+      transition: color 0.3s $easing;
+
+      &:hover {
+        color: $brand-primary;
+      }
+    }
   }
 
   /* Themes */

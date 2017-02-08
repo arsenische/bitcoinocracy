@@ -27,5 +27,11 @@ Styleguide 3.2
 
   .main-section {
     flex: 1 1 auto;
+
+    > .section {
+      + .section {
+        margin-top: 15px;
+      }
+    }
   }
 }

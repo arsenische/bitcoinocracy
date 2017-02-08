@@ -1,24 +1,13 @@
 - model_class = Argument
 - title "Vote with your Bitcoin signature"
 
-.hero style="background-image: url(#{asset_path('bg/buy_slide.jpg')})"
-  .hero-content.flex-row
-    .logo
-      = image_tag('logo-bitcoin.png', alt: 'Bitcoin')
-      h1 =t '.title', :default => model_class.model_name.human.pluralize.titleize
-    .content.text-left
-      p Bitcoinocracy is a free and decentralized way to measure the Bitcoin community's stance on a given proposition.
-      p Voting requires proof of bitcoin holdings via cryptographic signature. Signed votes cannot be forged, and are fully auditable by all users.
+= render :partial => "hero"
+= render :partial => "nav_secondary"
 
-nav.secondary
-  .content
-    = menu_group
-      = menu_item "Home", root_path
-      = menu_item t("arguments.index.new"), new_argument_path
-      = menu_item t("addresses.index"), addresses_path
-      = menu_item t("faq"), faq_path
 .page-content
   .main-section
+    = render :partial => "ad_728x90"
+
     nav.tabs role="navigation"
       ul
         li class="#{action_name=='controversial' ? 'active' : ''}" =link_to "Controversial", controversial_arguments_path
@@ -32,7 +21,8 @@ nav.secondary
 
     - @arguments.each do |argument|
       .listitem-argument class="#{argument.validity < 0 ? 'negative' : (argument.validity > 0 ? 'positive' : '')}"
-        .title= argument.statement
+        a.title href="#{argument_path(argument)}" 
+          = argument.statement
         .summary
           .summary-panel
             .amount title="#{btc_human(argument.validity)}"

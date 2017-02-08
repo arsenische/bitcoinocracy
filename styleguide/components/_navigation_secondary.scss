@@ -51,8 +51,18 @@ nav {
             display: block;
             padding:7px 0;
             text-decoration: none;
+            color: $dark;
+            transition: color 0.2s $easing;
+
+            &:hover {
+              color: $brand-primary;
+            }
           }
         }
+      }
+
+      .nav-right {
+        float: right;
       }
     }
   }

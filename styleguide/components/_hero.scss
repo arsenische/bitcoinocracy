@@ -65,7 +65,7 @@ Styleguide 2.2
 
     @media (min-width: $desktop) {
       padding: 20px 35px;
-      min-height: 200px;
+      min-height: 180px;
     }
 
     h1 {
@@ -82,6 +82,23 @@ Styleguide 2.2
 
       @media (min-width: $desktop-medium) {
         font-size: 3em;
+      }
+    }
+
+    h2 {
+      color: $bright;
+      font-family: 'museo-sans-rounded';
+      font-size: 1.8em;
+      font-weight: 500;
+      margin: 0 0 10px;
+      line-height: 1.1em;
+
+      @media (min-width: $desktop) {
+        font-size: 2.2em;
+      }
+
+      @media (min-width: $desktop-medium) {
+        font-size: 3.2em;
       }
     }
 
@@ -116,6 +133,16 @@ Styleguide 2.2
 
         @media (min-width: $desktop-medium) {
           font-size: 1.3em;
+        }
+      }
+
+      h2 {
+        @media (min-width: $desktop) {
+          font-size: 1.1em;
+        }
+
+        @media (min-width: $desktop-medium) {
+          font-size: 1.1em;
         }
       }
 
