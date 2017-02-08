@@ -1,0 +1,16 @@
+[Unit]
+Description=Bitcoinocracy Container
+After=docker.service
+
+[Service]
+Restart=always
+EnvironmentFile=/var/lib/bitcoinocracy/.env
+TimeoutStartSec=0
+ExecStart=/usr/local/bin/docker-compose -f /var/lib/bitcoinocracy/docker-compose.yml up --no-deps
+ExecStop=/usr/local/bin/docker-compose -f /var/lib/bitcoinocracy/docker-compose.yml stop
+ExecReload=/usr/local/bin/docker-compose -f /var/lib/bitcoinocracy/docker-compose.yml up --no-deps -d
+
+LimitNOFILE=30000
+
+[Install]
+WantedBy=multi-user.target
