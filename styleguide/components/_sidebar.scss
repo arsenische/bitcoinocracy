@@ -23,6 +23,7 @@ Styleguide 3.3
 .sidebar {
   flex: 0 0 25%;
   margin-top: 40px;
+  max-width: 300px;
 
   @media (min-width: $desktop) {
     margin-top: 0;

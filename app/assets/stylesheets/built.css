@@ -80,13 +80,14 @@ Styleguide 1.3.2
   padding: 11px 20px;
   text-decoration: none;
   font-weight: 400;
-  -webkit-transition: color 0.2s cubic-bezier(0.55, 0, 0.1, 1), background-color 0.2s cubic-bezier(0.55, 0, 0.1, 1), border 0.2s cubic-bezier(0.55, 0, 0.1, 1);
-  -moz-transition: color 0.2s cubic-bezier(0.55, 0, 0.1, 1), background-color 0.2s cubic-bezier(0.55, 0, 0.1, 1), border 0.2s cubic-bezier(0.55, 0, 0.1, 1);
-  transition: color 0.2s cubic-bezier(0.55, 0, 0.1, 1), background-color 0.2s cubic-bezier(0.55, 0, 0.1, 1), border 0.2s cubic-bezier(0.55, 0, 0.1, 1);
+  -webkit-transition: color 0.2s cubic-bezier(0.55, 0, 0.1, 1), background-color 0.2s cubic-bezier(0.55, 0, 0.1, 1), border 0.2s cubic-bezier(0.55, 0, 0.1, 1), opacity 0.2s cubic-bezier(0.55, 0, 0.1, 1);
+  -moz-transition: color 0.2s cubic-bezier(0.55, 0, 0.1, 1), background-color 0.2s cubic-bezier(0.55, 0, 0.1, 1), border 0.2s cubic-bezier(0.55, 0, 0.1, 1), opacity 0.2s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: color 0.2s cubic-bezier(0.55, 0, 0.1, 1), background-color 0.2s cubic-bezier(0.55, 0, 0.1, 1), border 0.2s cubic-bezier(0.55, 0, 0.1, 1), opacity 0.2s cubic-bezier(0.55, 0, 0.1, 1);
   /* Display Style */
   /* Types */
   /* Sizes */
-  /* Colors */ }
+  /* Colors */
+  /* Modifiers */ }
   .button:hover {
     background-color: #FFFFFF;
     color: #fab915; }
@@ -111,6 +112,13 @@ Styleguide 1.3.2
     .button.negative:hover {
       background-color: #FFFFFF;
       color: #f33535; }
+  .button.inactive {
+    background-color: #3c3c3c;
+    border: 2px solid #3c3c3c;
+    color: #ffffff;
+    opacity: 0.6; }
+    .button.inactive:hover {
+      color: #3c3c3c; }
 
 .button-group {
   display: -webkit-box;
@@ -774,7 +782,8 @@ Styleguide 3.3
   -moz-box-flex: 0;
   -ms-flex: 0 0 25%;
   flex: 0 0 25%;
-  margin-top: 40px; }
+  margin-top: 40px;
+  max-width: 300px; }
   @media (min-width: 1024px) {
     .sidebar {
       margin-top: 0;
@@ -1112,10 +1121,8 @@ Styleguide 2.6
     width: 728px;
     height: 90px; }
 
-.main-wrapper {
-  padding-top: 51px; }
-  .main-wrapper.dummy {
-    padding-top: 0; }
+.main-wrapper.dummy {
+  padding-top: 0; }
 
 /*
 Argument Score
@@ -1413,6 +1420,32 @@ textarea {
   textarea:focus {
     box-shadow: 0 0 10px #fab915;
     outline: none; }
+
+/*
+Alert
+
+default         - Default alert
+.warning        - Warning alert
+
+markup:
+<div class="alert {$modifiers}">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+</div>
+
+Styleguide 2.12
+*/
+.alert {
+  display: block;
+  background-color: #EEEEEE;
+  color: #3c3c3c;
+  border-radius: 2px;
+  padding: 7px 10px;
+  font-size: 0.8em; }
+  .alert.warning {
+    background-color: #fab915;
+    color: #ffffff; }
+  .alert.transparent {
+    background-color: transparent; }
 
 /*
 Header

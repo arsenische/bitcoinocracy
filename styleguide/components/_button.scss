@@ -37,7 +37,7 @@ Styleguide 1.3.2
   padding: 11px 20px;
   text-decoration: none;
   font-weight: 400;
-  transition: color 0.2s $easing, background-color 0.2s $easing, border 0.2s $easing;
+  transition: color 0.2s $easing, background-color 0.2s $easing, border 0.2s $easing, opacity 0.2s $easing;
 
   &:hover {
     background-color: #FFFFFF;
@@ -81,6 +81,18 @@ Styleguide 1.3.2
     &:hover {
       background-color: #FFFFFF;
       color: $negative;
+    }
+  }
+
+  /* Modifiers */
+  &.inactive {
+    background-color: $dark;
+    border: 2px solid $dark;
+    color: $bright;
+    opacity: 0.6;
+
+    &:hover {
+      color: $dark;
     }
   }
 

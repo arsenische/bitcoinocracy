@@ -5,43 +5,15 @@ html
     = display_meta_tags site: 'Bitcoinocracy', separator: "&mdash;".html_safe
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    javascript:
+      var BitcoinMenuWidth = 1200;
+    = javascript_include_tag 'https://menu.bitcoin.com/universal-menu.js'
     = render 'layouts/google_analytics'
     = csrf_meta_tags
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     link rel="shortcut icon" href="#{image_url('favicon.png')}" type="image/x-icon"
   body
-  
-    .header
-      .header-content
-        .logo= image_tag('logo-bitcoin.png', alt: 'Bitcoin')
-        nav
-          a href="#" Start here
-          a href="#" News
-          a href="#" Forum
-          a href="#" Game
-        #univ-hmbgr.hmbgr-wrap
-          .hmbgr
-
     .main-wrapper
-      / = nav_bar static: :top, brand: image_tag('bitcoin.com.png', alt: ''), brand_link: 'https://bitcoin.com', responsive: true
-      /   = menu_group
-      /     = menu_item "Home", root_path
-      /     = menu_item t("arguments.index.new"), new_argument_path
-      /     = menu_item t("addresses.index"), addresses_path
-      /     = menu_item t("faq"), faq_path
-      nav.primary
-        .content
-          section
-            .navigation-block
-              .title Nav section title
-              ul
-                li
-                  a href="#" Nav link
-                  a href="#" Nav link
-                  a href="#" Nav link
-                  a href="#" Nav link
-                  a href="#" Nav link
-
       .container
         - if flash[:error]
           .error.bg-danger =h flash[:error]
@@ -59,3 +31,12 @@ html
           a href="http://vote.bitcoin.com" Bitcoinocracy
           |. Source code is available at 
           a href="https://github.com/bitcoin-portal/bitcoinocracy/" target="_blank" GitHub.
+
+    javascript:
+      (function(b,i,t,C,O,I,N) {
+        window.addEventListener('load',function() {
+          if(b.getElementById(C))return;
+          I=b.createElement(i),N=b.getElementsByTagName(i)[0];
+          I.src=t;I.id=C;N.parentNode.insertBefore(I, N);
+        },false)
+      })(document,'script','https://widgets.bitcoin.com/widget.js','btcwdgt');

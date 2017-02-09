@@ -1,0 +1,31 @@
+/*
+Alert
+
+default         - Default alert
+.warning        - Warning alert
+
+markup:
+<div class="alert {$modifiers}">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+</div>
+
+Styleguide 2.12
+*/
+
+.alert {
+  display: block;
+  background-color: $neutral;
+  color: $dark;
+  border-radius: 2px;
+  padding: 7px 10px;
+  font-size: 0.8em;
+
+  &.warning {
+    background-color: $brand-primary;
+    color: $bright;
+  }
+
+  &.transparent {
+    background-color: transparent;
+  }
+}

@@ -21,24 +21,34 @@
                     =text_field("signature", "signature", {style:"font-size:1.5em;width:100%;", placeholder:"Place signature here", class:"submit_on_edit"})
                   .section
                     =button_tag "Submit", class:"button"
-                  .alert.alert-warning
-                    | Warning: 
-                    a href="https://www.reddit.com/r/btc/comments/4mhjh3/psa_bitcoinocracycom_signatures_expose_your/" rel="nofollow" target="_blank" Bitcoin signatures expose your public keys
-                    |  (that shouldn't be a problem until 
-                    a href="https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm" rel="nofollow" target="_blank" ECDSA
-                    |  is broken). Moreover address reuse with a faulty random number generator 
-                    a href="http://www.nilsschneider.net/2013/01/28/recovering-bitcoin-private-keys.html" rel="nofollow" target="_blank" may leak your private keys
-                    |.
-                  =hidden_field("signature", "negation", {value: @is_doubt, autocomplete: false})
+                  .section
+                    .alert.transparent
+                      | Warning: 
+                      a href="https://www.reddit.com/r/btc/comments/4mhjh3/psa_bitcoinocracycom_signatures_expose_your/" rel="nofollow" target="_blank" Bitcoin signatures expose your public keys
+                      |  (that shouldn't be a problem until 
+                      a href="https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm" rel="nofollow" target="_blank" ECDSA
+                      |  is broken). Moreover address reuse with a faulty random number generator 
+                      a href="http://www.nilsschneider.net/2013/01/28/recovering-bitcoin-private-keys.html" rel="nofollow" target="_blank" may leak your private keys
+                      |.
+                    =hidden_field("signature", "negation", {value: @is_doubt, autocomplete: false})
       / .argument-score
       /   .bar.positive style="flex-basis: #{percent_human(@argument.pros_share)};"= percent_human(@argument.pros_share)
       /   .bar.negative style="flex-basis: #{percent_human(@argument.cons_share)};"= percent_human(@argument.cons_share)
     .section
       .card
         .content
-          .argument-score
-            .bar.positive style="flex-basis: #{percent_human(@argument.pros_share)};"= percent_human(@argument.pros_share)
-            .bar.negative style="flex-basis: #{percent_human(@argument.cons_share)};"= percent_human(@argument.cons_share)
+          / AddThis Button BEGIN
+          .addthis_toolbox.addthis_default_style.addthis_32x32_style.pull-right addthis:data_track_clickback="false" addthis:data_track_addressbar="false" addthis:ui_language="#{I18n.locale}"
+            a.addthis_button_preferred_1
+            a.addthis_button_preferred_2
+            a.addthis_button_preferred_3
+            a.addthis_button_preferred_4
+            a.addthis_button_compact
+            a.addthis_counter.addthis_bubble_style
+          / AddThis Button END
+          / .argument-score
+          /   .bar.positive style="flex-basis: #{percent_human(@argument.pros_share)};"= percent_human(@argument.pros_share)
+          /   .bar.negative style="flex-basis: #{percent_human(@argument.cons_share)};"= percent_human(@argument.cons_share)
 
       .row
         .col-md-9
@@ -57,15 +67,7 @@
               | |
               =link_to "Discuss this on the Bitcoin forum", "https://forum.bitcoin.com/bitcoin-discussion/", class:"btn btn-small btn-link"
 
-          / AddThis Button BEGIN
-          .addthis_toolbox.addthis_default_style.addthis_32x32_style.pull-right addthis:data_track_clickback="false" addthis:data_track_addressbar="false" addthis:ui_language="#{I18n.locale}"
-            a.addthis_button_preferred_1
-            a.addthis_button_preferred_2
-            a.addthis_button_preferred_3
-            a.addthis_button_preferred_4
-            a.addthis_button_compact
-            a.addthis_counter.addthis_bubble_style
-          / AddThis Button END
+          
 
 
     .row
