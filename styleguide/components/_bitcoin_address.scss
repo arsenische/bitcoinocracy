@@ -1,0 +1,15 @@
+/*
+Bitcoin Address
+
+markup:
+<p class="bitcoin-address">16cou7Ht6WjTzuFyDBnht9hmvXytg6XdVT</p>
+
+Styleguide 2.14
+*/
+
+.bitcoin-address {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+}

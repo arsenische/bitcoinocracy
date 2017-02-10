@@ -1,0 +1,74 @@
+/*
+Table
+
+markup:
+<table>
+  <thead>
+    <tr>
+      <td>Heading 1</td>
+      <td>Heading 2</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Data a1</td>
+      <td>Data a2</td>
+    </tr>
+    <tr>
+      <td>Data b1</td>
+      <td>Data b2</td>
+    </tr>
+    <tr>
+      <td>Data c1</td>
+      <td>Data c2</td>
+    </tr>
+    <tr>
+      <td>Data d1</td>
+      <td>Data d2</td>
+    </tr>
+  </tbody>
+</table>
+
+Styleguide 2.13
+*/
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+
+  thead {
+    td {
+
+    }
+  }
+
+  tbody {
+    td {
+      border: 1px solid $dark-complement;
+      padding: 7px 10px;
+
+      p {
+        margin: 0;
+        font-size: 0.8em;
+
+        + p {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+
+  &.borderless {
+    tbody {
+      td {
+        border: none;
+      }
+    }
+  }
+}
+
+.table-container {
+  height: 200px;
+  overflow: auto;
+}

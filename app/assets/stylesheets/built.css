@@ -823,7 +823,9 @@ Styleguide 2.5
 .card {
   box-shadow: 0 0 10px #ccc;
   /* Types */ }
-  .card h1, .card h2, .card h3, .card h4, .card h5, .card h6 {
+  .card.text-center {
+    text-align: center; }
+  .card > h1, .card > h2, .card > h3, .card > h4, .card > h5, .card > h6 {
     padding: 15px 20px;
     border-bottom: 1px solid #CCCCCC;
     margin-bottom: 0;
@@ -831,23 +833,24 @@ Styleguide 2.5
     color: #8b8b8b; }
   .card.feature {
     text-align: center; }
-    .card.feature h1, .card.feature h2, .card.feature h3, .card.feature h4, .card.feature h5, .card.feature h6 {
+    .card.feature > h1, .card.feature > h2, .card.feature > h3, .card.feature > h4, .card.feature > h5, .card.feature > h6 {
       position: relative;
       color: #3c3c3c;
       padding: 25px 60px;
-      font-size: 1.6em; }
-      .card.feature h1:before, .card.feature h1:after, .card.feature h2:before, .card.feature h2:after, .card.feature h3:before, .card.feature h3:after, .card.feature h4:before, .card.feature h4:after, .card.feature h5:before, .card.feature h5:after, .card.feature h6:before, .card.feature h6:after {
+      font-size: 1.6em;
+      font-weight: 700; }
+      .card.feature > h1:before, .card.feature > h1:after, .card.feature > h2:before, .card.feature > h2:after, .card.feature > h3:before, .card.feature > h3:after, .card.feature > h4:before, .card.feature > h4:after, .card.feature > h5:before, .card.feature > h5:after, .card.feature > h6:before, .card.feature > h6:after {
         position: absolute;
         color: #EEEEEE;
         font-size: 80px;
         height: 30px;
         line-height: 70px;
         font-family: 'Arial'; }
-      .card.feature h1:before, .card.feature h2:before, .card.feature h3:before, .card.feature h4:before, .card.feature h5:before, .card.feature h6:before {
+      .card.feature > h1:before, .card.feature > h2:before, .card.feature > h3:before, .card.feature > h4:before, .card.feature > h5:before, .card.feature > h6:before {
         top: 10px;
         left: 10px;
         content: "“"; }
-      .card.feature h1:after, .card.feature h2:after, .card.feature h3:after, .card.feature h4:after, .card.feature h5:after, .card.feature h6:after {
+      .card.feature > h1:after, .card.feature > h2:after, .card.feature > h3:after, .card.feature > h4:after, .card.feature > h5:after, .card.feature > h6:after {
         bottom: 10px;
         right: 10px;
         content: "”"; }
@@ -857,6 +860,10 @@ Styleguide 2.5
       margin-top: 15px; }
     .card .content .section.hidden {
       display: none; }
+    .card .content h1, .card .content h2, .card .content h3, .card .content h4, .card .content h5, .card .content h6 {
+      font-weight: 500; }
+    .card .content .addthis_toolbox {
+      display: inline-block; }
   .card.shaded {
     background-color: #EAEAEA;
     box-shadow: none; }
@@ -870,6 +877,21 @@ Styleguide 2.5
       padding: 7px 0; }
     .card nav ul li + li {
       margin-top: 10px; }
+
+.card-group {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .card-group .card {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 50%;
+    -moz-box-flex: 1;
+    -ms-flex: 1 1 50%;
+    flex: 1 1 50%; }
+    .card-group .card + .card {
+      margin-left: 15px; }
 
 /*
 Navigation - Primary
@@ -1526,6 +1548,72 @@ Styleguide 2.12
     color: #ffffff; }
   .alert.transparent {
     background-color: transparent; }
+
+/*
+Table
+
+markup:
+<table>
+  <thead>
+    <tr>
+      <td>Heading 1</td>
+      <td>Heading 2</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Data a1</td>
+      <td>Data a2</td>
+    </tr>
+    <tr>
+      <td>Data b1</td>
+      <td>Data b2</td>
+    </tr>
+    <tr>
+      <td>Data c1</td>
+      <td>Data c2</td>
+    </tr>
+    <tr>
+      <td>Data d1</td>
+      <td>Data d2</td>
+    </tr>
+  </tbody>
+</table>
+
+Styleguide 2.13
+*/
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%; }
+  table tbody td {
+    border: 1px solid #AAAAAA;
+    padding: 7px 10px; }
+    table tbody td p {
+      margin: 0;
+      font-size: 0.8em; }
+      table tbody td p + p {
+        margin-top: 10px; }
+  table.borderless tbody td {
+    border: none; }
+
+.table-container {
+  height: 200px;
+  overflow: auto; }
+
+/*
+Bitcoin Address
+
+markup:
+<p class="bitcoin-address">16cou7Ht6WjTzuFyDBnht9hmvXytg6XdVT</p>
+
+Styleguide 2.14
+*/
+.bitcoin-address {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px; }
 
 /*
 Header

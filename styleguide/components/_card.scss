@@ -22,11 +22,15 @@ Styleguide 2.5
 .card {
   box-shadow: 0 0 10px #ccc;
 
+  &.text-center {
+    text-align: center;
+  }
+
   .image {
 
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  > h1, > h2, > h3, > h4, > h5, > h6 {
     padding: 15px 20px;
     border-bottom: 1px solid #CCCCCC;
     margin-bottom: 0;
@@ -37,11 +41,12 @@ Styleguide 2.5
   &.feature {
     text-align: center;
 
-    h1, h2, h3, h4, h5, h6 {
+    > h1, > h2, > h3, > h4, > h5, > h6 {
       position: relative;
       color: $dark;
       padding: 25px 60px;
       font-size: 1.6em;
+      font-weight: 700;
 
       &:before, &:after {
         position: absolute;
@@ -78,6 +83,14 @@ Styleguide 2.5
         display: none;
       }
     }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 500;
+    }
+
+    .addthis_toolbox {
+      display: inline-block;
+    }
   }
 
   /* Types */
@@ -103,6 +116,17 @@ Styleguide 2.5
           margin-top: 10px;
         }
       }
+    }
+  }
+}
+
+.card-group {
+  display: flex;
+
+  .card {
+    flex: 1 1 50%;
+    + .card {
+      margin-left: 15px;
     }
   }
 }
