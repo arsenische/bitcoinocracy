@@ -40,6 +40,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
-    User.create(email: ENV['admin_email'] || 'admin@example.com', password: ENV['admin_password'] || 'password', admin: true)
+    User.create(email: ENV['ADMIN_EMAIL'] || 'admin@example.com', password: ENV['ADMIN_PASSWORD'] || 'password', admin: true)
   end
 end

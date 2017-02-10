@@ -8,6 +8,8 @@ services:
       - DATABASE_URL=${DATABASE_URL}
       - RACK_ENV=${RACK_ENV}
       - RAILS_ENV=${RAILS_ENV}
+      - SENTRY_DSN=${SENTRY_DSN}
+      - LOGENTRIES_TOKEN=${LOGENTRIES_TOKEN}
   web:
     build: .
     command: bundle exec puma -C config/puma.rb
@@ -17,7 +19,10 @@ services:
       - RACK_ENV=${RACK_ENV}
       - RAILS_ENV=${RAILS_ENV}
       - RAILS_SERVE_STATIC_FILES=${RAILS_SERVE_STATIC_FILES}
+      - ADMIN_EMAIL=${ADMIN_EMAIL}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
       - SENTRY_DSN=${SENTRY_DSN}
+      - LOGENTRIES_TOKEN=${LOGENTRIES_TOKEN}
 
     ports:
       - "3000:3000"
