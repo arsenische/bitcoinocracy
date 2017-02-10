@@ -27,24 +27,53 @@ Styleguide 2.4
 */
 nav {
   &.secondary {
-    padding: 7px 20px;
+    padding: 7px 10px;
     background-color: #F8F8F8;
     border-bottom: 1px solid #ddd;
+
+    @media (min-width: $desktop) {
+      padding: 7px 20px;
+    }
 
     .content {
       margin: 0 auto;
       max-width: $content-width-max;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      @media (min-width: $desktop) {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+      }
 
       ul {
         margin: 0;
         padding: 0;
         list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        @media (min-width: $desktop) {
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+        }
 
         li {
           display: inline-block;
+          margin: 0 15px;
 
           + li {
-            margin-left: 30px;
+            margin: 0 15px;;
+          }
+
+          @media (min-width: $desktop) {
+            margin: 0;
+
+            + li {
+              margin: 0 0 0 30px;
+            }
           }
 
           a {
@@ -61,8 +90,17 @@ nav {
         }
       }
 
-      .nav-right {
-        float: right;
+      .addthis_toolbox {
+        flex: 0 0 auto;
+        display: none;
+
+        @media (min-width: $desktop) {
+          display: block;
+        }
+
+        a {
+          margin-bottom: 0;
+        }
       }
     }
   }

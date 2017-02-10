@@ -81,7 +81,7 @@ gulp.task('styleguide:watch', ['styleguide:build', 'copy:images'], function () {
 
 gulp.task('styleguide:deploy', ['styleguide:build', 'copy:images'], function () {
   return surge({
-    project: './styleguide',
+    project: './styleguide-documentation',
     domain: 'bitcoinocracy-styleguide.surge.sh'
   })
 });

@@ -18,14 +18,15 @@ Styleguide 2.8
 .tabs {
   max-width: 100%;
   overflow: auto;
-  
+  margin: 0 0 35px;
+  border-bottom: 1px solid $brand-primary;
+
   ul {
     display: flex;
     align-items: flex-end;
-    margin: 0 0 35px;
+    margin: 0;
     padding: 0;
     list-style-type: none;
-    border-bottom: 1px solid $brand-primary;
 
     li {
       position: relative;

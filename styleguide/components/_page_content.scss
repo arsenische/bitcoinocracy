@@ -18,11 +18,12 @@ Styleguide 3.2
   display: flex;
   margin: 0 auto;
   max-width: $content-width-max;
-  padding: 30px;
+  padding: 10px;
   flex-direction: column;
 
   @media (min-width: $desktop) {
     flex-direction: row;
+    padding: 30px;
   }
 
   .main-section {

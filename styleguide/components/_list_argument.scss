@@ -82,11 +82,17 @@ Styleguide 2.1
 .listitem-argument {
   display: flex;
   align-items: stretch;
+  flex-wrap: wrap;
   box-shadow: 0 0 5px #eee;
   border: 1px solid #ddd;
+  border-left: 12px solid #f9b016;
   background-color: #FFFFFF;
   color: $dark;
   transition: all 0.3s $easing;
+
+  @media (min-width: $desktop) {
+    flex-wrap: nowrap;
+  }
 
   &:hover {
     box-shadow: 0 0 15px #bbb;
@@ -97,27 +103,24 @@ Styleguide 2.1
     margin-top: 15px;
   }
 
-  &:before {
-    content: '';
-    display: block;
-    border-left: 12px solid #f9b016;
-  }
-
-  &.positive:before {
+  &.positive {
     border-left: 12px solid $positive;
   }
 
-  &.negative:before {
+  &.negative {
     border-left: 12px solid $negative;
   }
 
   .summary {
     width: 100%;
-    max-width: 200px;
     display: flex;
     flex-direction: column;
     text-align: center;
     background-color: rgba(0,0,0,0.05);
+
+    @media (min-width: $desktop) {
+      max-width: 200px;
+    }
 
     .summary-panel {
       padding: 10px 20px;
