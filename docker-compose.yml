@@ -17,6 +17,7 @@ services:
       - RACK_ENV=${RACK_ENV}
       - RAILS_ENV=${RAILS_ENV}
       - RAILS_SERVE_STATIC_FILES=${RAILS_SERVE_STATIC_FILES}
+      - SENTRY_DSN=${SENTRY_DSN}
 
     ports:
       - "3000:3000"
