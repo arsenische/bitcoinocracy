@@ -52,4 +52,4 @@ You might also need to run the database migrations in your docker container in o
 
 or (if you run it for the first time):
 
-`admin_email='your@email.address' admin_password='your-admin-password'; rake db:migrate`
+`ADMIN_EMAIL='your@email.address' ADMIN_PASSWORD='your-admin-password'; rake db:migrate`
