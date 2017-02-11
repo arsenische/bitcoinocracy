@@ -24,13 +24,14 @@ html
 
         = yield
 
-    .footer
-      .footer-content
-        a.pull-right href="https://github.com/bitcoin-portal/bitcoinocracy/issues/new" target="_blank" Report a bug
-        p
-          a href="http://vote.bitcoin.com" Bitcoinocracy
-          |. Source code is available at 
-          a href="https://github.com/bitcoin-portal/bitcoinocracy/" target="_blank" GitHub.
+    = render :partial => "layouts/footer"
+    / .footer
+    /   .footer-content
+    /     a.pull-right href="https://github.com/bitcoin-portal/bitcoinocracy/issues/new" target="_blank" Report a bug
+    /     p
+    /       a href="http://vote.bitcoin.com" Bitcoinocracy
+    /       |. Source code is available at 
+    /       a href="https://github.com/bitcoin-portal/bitcoinocracy/" target="_blank" GitHub.
 
     javascript:
       (function(b,i,t,C,O,I,N) {
