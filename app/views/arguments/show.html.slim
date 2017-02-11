@@ -1,7 +1,7 @@
 - model_class = Argument
 - title @argument.statement
-= render :partial => "hero"
-= render :partial => "nav_secondary"
+= render :partial => "layouts/hero"
+= render :partial => "layouts/nav_secondary"
 
 .page-content
   .main-section
@@ -93,4 +93,4 @@
     input type='hidden' name='pro_statement' id='pro_statement' value=@argument.pro_statement
     input type='hidden' name='con_statement' id='con_statement' value=@argument.con_statement
 
-  = render :partial => "sidebar"
+  = render :partial => "layouts/sidebar"

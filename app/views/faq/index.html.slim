@@ -1,43 +1,72 @@
-h1 Frequently Asked Questions
+= render :partial => "layouts/hero"
+= render :partial => "layouts/nav_secondary"
 
-h3 What is Bitcoinocracy?
-p
-  | Bitcoinocracy offers a free and transparent voting mechanism to facilitate decentralized decision making in the Bitcoin ecosystem and to determine the truth backed by real monetary value.
 
-h3 What is the point of Bitcoin voting?
-p
-  | Voting with your Bitcoin is a mathematically secure and anonymous way to publicly make a statement about a topic that you are interested in. By signing a message with your Bitcoin key, you are able to back-up your statement with the monetary value associated with the public key you possess and are signing with. Similar concepts are used in schemes such as
-  a href="https://wiki.bitcoin.com/w/Proof_of_Stake"  proof-of-stake
-  |.
+.page-content
+  .main-section
+    = render :partial => "layouts/ad_728x90"
+    h1 Frequently Asked Questions
 
-h3 How does Bitcoinocracy work?
-p
-  | The voting mechanism utilizes the
-  a href="https://wiki.bitcoin.com/index.php?title=ECDSA"  cryptography
-  |  found in Bitcoin to verify signatures. Signatures are mathematically generated from a hash of the argument’s message plus the bitcoin private key. The signature verifies that the signer possesses the private key to the associated public bitcoin address.
+    .section
+      .card
+        h3 What is Bitcoinocracy?
+        .content
+          p
+            | Bitcoinocracy offers a free and transparent voting mechanism to facilitate decentralized decision making in the Bitcoin ecosystem and to determine the truth backed by real monetary value.
 
-h3 How do I submit my own voting argument?
-p
-  | To submit your own argument, simply go to the
-  a href="https://vote.bitcoin.com/arguments/new"  Arguments page
-  |  and create a statement. Once a statement is created, you will be prompted to copy the statement and sign it with your Bitcoin address, which you would then paste it into the argument for submission.
+    .section
+      .card
+        h3 What is the point of Bitcoin voting?
+        .content
+          p
+            | Voting with your Bitcoin is a mathematically secure and anonymous way to publicly make a statement about a topic that you are interested in. By signing a message with your Bitcoin key, you are able to back-up your statement with the monetary value associated with the public key you possess and are signing with. Similar concepts are used in schemes such as
+            a href="https://wiki.bitcoin.com/w/Proof_of_Stake"  proof-of-stake
+            |.
 
-h3 How do I sign a message?
-p
-  | Many Bitcoin wallet software programs have built-in message signing functionality that allows you to sign a message with the Bitcoin key you possess; you can
-  a href="https://www.bitcoin.com/choose-your-wallet"  choose a wallet
-  |  if you don’t have one already. Most wallets will have an area where your address is displayed that you can copy the voting argument into it and sign the message. After signing, the program will return a cryptographically secure signature for you to paste into the Argument page for verification.
+    .section
+      .card
+        h3 How does Bitcoinocracy work?
+        .content
+          p
+            | The voting mechanism utilizes the
+            a href="https://wiki.bitcoin.com/index.php?title=ECDSA"  cryptography
+            |  found in Bitcoin to verify signatures. Signatures are mathematically generated from a hash of the argument’s message plus the bitcoin private key. The signature verifies that the signer possesses the private key to the associated public bitcoin address.
 
-h3 Is Bitcoinocracy safe?
-p
-  | Yes, it’s safe. Bitcoinocracy does not use or ask for your Bitcoin private keys at any time, and do not submit them anywhere on this site. Message signing is all done via your Bitcoin wallet program. Please note: Bitcoin signatures
-  a href="https://www.reddit.com/r/btc/comments/4mhjh3/psa_bitcoinocracycom_signatures_expose_your/"  expose your public keys
-  |  (which isn't a problem until ECDSA is broken). Moreover address reuse with a faulty random number generator
-  a href="http://www.nilsschneider.net/2013/01/28/recovering-bitcoin-private-keys.html"  may leak
-  |  your private keys.
+    .section
+      .card
+        h3 How do I submit my own voting argument?
+        .content
+          p
+            | To submit your own argument, simply go to the
+            a href="https://vote.bitcoin.com/arguments/new"  Arguments page
+            |  and create a statement. Once a statement is created, you will be prompted to copy the statement and sign it with your Bitcoin address, which you would then paste it into the argument for submission.
 
-h3 How do I learn more about Bitcoin?
-p
-  | Bitcoin is different than any currency you’ve used before, so it's very important to understand some key points. To begin learning more, go to the
-  a href="https://www.bitcoin.com/getting-started"  Getting Started
-  |  page.
+    .section
+      .card
+        h3 How do I sign a message?
+        .content
+          p
+            | Many Bitcoin wallet software programs have built-in message signing functionality that allows you to sign a message with the Bitcoin key you possess; you can
+            a href="https://www.bitcoin.com/choose-your-wallet"  choose a wallet
+            |  if you don’t have one already. Most wallets will have an area where your address is displayed that you can copy the voting argument into it and sign the message. After signing, the program will return a cryptographically secure signature for you to paste into the Argument page for verification.
+
+    .section
+      .card
+        h3 Is Bitcoinocracy safe?
+        .content
+          p
+            | Yes, it’s safe. Bitcoinocracy does not use or ask for your Bitcoin private keys at any time, and do not submit them anywhere on this site. Message signing is all done via your Bitcoin wallet program. Please note: Bitcoin signatures
+            a href="https://www.reddit.com/r/btc/comments/4mhjh3/psa_bitcoinocracycom_signatures_expose_your/"  expose your public keys
+            |  (which isn't a problem until ECDSA is broken). Moreover address reuse with a faulty random number generator
+            a href="http://www.nilsschneider.net/2013/01/28/recovering-bitcoin-private-keys.html"  may leak
+            |  your private keys.
+
+    .section
+      .card
+        h3 How do I learn more about Bitcoin?
+        .content
+          p
+            | Bitcoin is different than any currency you’ve used before, so it's very important to understand some key points. To begin learning more, go to the
+            a href="https://www.bitcoin.com/getting-started"  Getting Started
+            |  page.
+  = render :partial => "layouts/sidebar"
