@@ -20,10 +20,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
   arguments:
     index:
-      new: "Submit your Argument"
-      title: "Bitcoinocracy - vote with your Bitcoin signature"
+      new: Submit your Proposition
+      title: Vote with your Bitcoin signature
   addresses:
-    index: 'Bitcoin Addresses'
+    index: Bitcoin Addresses
+  faq: FAQ
+  activerecord:
+    models:
+      argument:
+        one: Proposition
+        other: Propositions

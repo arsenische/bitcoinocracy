@@ -1,6 +1,6 @@
-module ApplicationHelper 
-	def btc_human(satoshies, separator=' ')
-		"%.8f#{separator}Ƀ" % (1.0*satoshies.to_i/1e8)
+module ApplicationHelper
+	def btc_human(satoshies, options = {prefix: '', suffix: '&nbsp;BTC'} )
+    "#{options[:prefix]}%.8f#{options[:suffix]}".html_safe % (1.0*satoshies.to_i/1e8)
 	end
 
   def percent_human(x)
