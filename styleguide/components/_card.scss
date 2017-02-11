@@ -122,11 +122,24 @@ Styleguide 2.5
 
 .card-group {
   display: flex;
+  flex-direction: column;
+
+  @media (min-width: $tablet) {
+    flex-direction: row;
+  }
 
   .card {
-    flex: 1 1 50%;
+    flex: 1 1 100%;
+
+    @media (min-width: $tablet) {
+      flex: 1 1 50%;
+    }
+
     + .card {
-      margin-left: 15px;
+      margin: 15px 0 0 0;
+      @media (min-width: $tablet) {
+        margin: 0 0 0 15px;
+      }
     }
   }
 }

@@ -646,7 +646,7 @@ Styleguide 2.2
     .hero .hero-content p {
       color: #ffffff;
       margin: 0 auto;
-      font-size: 1em;
+      font-size: 0.8em;
       line-height: 1.3em;
       max-width: 600px; }
       @media (min-width: 1024px) {
@@ -883,15 +883,41 @@ Styleguide 2.5
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  @media (min-width: 768px) {
+    .card-group {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: row;
+      -moz-box-orient: horizontal;
+      -moz-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row; } }
   .card-group .card {
     -webkit-box-flex: 1;
-    -webkit-flex: 1 1 50%;
+    -webkit-flex: 1 1 100%;
     -moz-box-flex: 1;
-    -ms-flex: 1 1 50%;
-    flex: 1 1 50%; }
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%; }
+    @media (min-width: 768px) {
+      .card-group .card {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1 1 50%;
+        -moz-box-flex: 1;
+        -ms-flex: 1 1 50%;
+        flex: 1 1 50%; } }
     .card-group .card + .card {
-      margin-left: 15px; }
+      margin: 15px 0 0 0; }
+      @media (min-width: 768px) {
+        .card-group .card + .card {
+          margin: 0 0 0 15px; } }
 
 /*
 Navigation - Primary
