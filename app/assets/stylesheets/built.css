@@ -1460,6 +1460,15 @@ textarea {
     box-shadow: 0 0 10px #fab915;
     outline: none; }
 
+.input-group {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .input-group .input-group-btn {
+    margin-left: 10px; }
+
 /*
 Argument summary
 
@@ -1587,7 +1596,7 @@ table {
   border-spacing: 0;
   width: 100%; }
   table tbody td {
-    border: 1px solid #AAAAAA;
+    border: 1px solid #CCCCCC;
     padding: 7px 10px; }
     table tbody td p {
       margin: 0;

@@ -1,19 +1,30 @@
 - model_class = BitcoinAddress
 - title "Bitcoin addresses"
 
-h1 =t '.title', :default => model_class.model_name.human.pluralize.titleize
+= render :partial => "layouts/hero"
+= render :partial => "layouts/nav_secondary"
 
-form.navbar-form role="search" action="#{addresses_path}" method="get"
-  .input-group
-    input.form-control type="text" placeholder="Go to bitcoin address..." name="bitcoin_address"
-    span.input-group-btn
-      button.btn.btn-default type="submit"
-       span.fa.fa-search aria-hidden="true"
+.page-content
+  .main-section
+    = render :partial => "layouts/ad_728x90"
+    h1 =t '.title', :default => model_class.model_name.human.pluralize.titleize
 
-div
-  - @addresses.each do |address|
-    div
-      | #{btc_human address.balance}: 
-      = link_to address.bitcoin_address, address_path(address.bitcoin_address)
+    .section
+      form.navbar-form role="search" action="#{addresses_path}" method="get"
+        .input-group
+          input.form-control type="text" placeholder="Go to bitcoin address..." name="bitcoin_address"
+          span.input-group-btn
+            button.button type="submit"
+              span.fa.fa-search aria-hidden="true"
+              | Search
 
-= paginate @addresses, :theme => 'twitter-bootstrap-3'
+    .section
+      table
+        tbody
+          - @addresses.each do |address|
+            tr
+              td #{btc_human address.balance}: 
+              td= link_to address.bitcoin_address, address_path(address.bitcoin_address)
+
+    = paginate @addresses, :theme => 'twitter-bootstrap-3'
+  = render :partial => "layouts/sidebar"

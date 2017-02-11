@@ -41,3 +41,15 @@ textarea {
     outline: none;
   }
 }
+
+.input-group {
+  display: flex;
+
+  .form-control {
+
+  }
+
+  .input-group-btn {
+    margin-left: 10px;
+  }
+}
