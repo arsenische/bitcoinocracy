@@ -4,6 +4,8 @@ Alert
 default         - Default alert
 .warning        - Warning alert
 .transparent        - Transparent alert
+.positive        - Positive alert
+.negative        - Negative alert
 
 markup:
 <div class="alert {$modifiers}">
@@ -23,6 +25,16 @@ Styleguide 2.12
 
   &.warning {
     background-color: $brand-primary;
+    color: $bright;
+  }
+
+  &.positive {
+    background-color: $positive;
+    color: $bright;
+  }
+
+  &.negative {
+    background-color: $negative;
     color: $bright;
   }
 

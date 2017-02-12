@@ -45,8 +45,12 @@ Styleguide 2.5
       position: relative;
       color: $dark;
       padding: 25px 60px;
-      font-size: 1.6em;
+      font-size: 1.2em;
       font-weight: 700;
+
+      @media (min-width: $tablet) {
+        font-size: 1.6em;
+      }
 
       &:before, &:after {
         position: absolute;
