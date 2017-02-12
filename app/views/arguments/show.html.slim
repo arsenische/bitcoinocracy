@@ -38,7 +38,10 @@
       .card.text-center
         .content
           .section
-            h3 #{btc_human(@argument.pros_sum)} agree that:
+            - if @argument.pros_sum > @argument.cons_sum
+              h3 #{btc_human(@argument.pros_sum)} agree that:
+            - if @argument.cons_sum > @argument.pros_sum
+              h3 #{btc_human(@argument.cons_sum)} doubt that:
             p #{@argument.statement}
             .button-group.center
               a.button href="https://forum.bitcoin.com/bitcoin-discussion/" Discuss this proposition
@@ -84,9 +87,6 @@
                           p.bitcoin-address= link_to address.bitcoin_address, address_path(address.bitcoin_address)
                         td
                           p= btc_human address.balance
-      .row
-        .col-md-9
-          
 
       div#signature_status style='display:none'
 
