@@ -1,9 +1,19 @@
 - title "Signed by #{@address.bitcoin_address}"
-h1 #{@address.bitcoin_address}
-.lead Balance: #{btc_human @address.balance}
-.lead Statements signed:
 
-ul
-  - @address.signatures.shuffle.each do |signature|
-    li.lead
-      = link_to signature.message, argument_path(signature.argument), class: (signature.negation? ? 'text-danger' : 'text-success')
+= render :partial => "layouts/hero"
+= render :partial => "layouts/nav_secondary"
+
+.page-content
+  .main-section
+    = render :partial => "layouts/ad_728x90"
+    .card.feature
+      h3.breakable #{@address.bitcoin_address}
+      .content
+        p Balance: #{btc_human @address.balance}
+        p Statements signed:
+
+        ul.text-left
+          - @address.signatures.shuffle.each do |signature|
+            li.lead
+              = link_to signature.message, argument_path(signature.argument), class: (signature.negation? ? 'text-danger' : 'text-success')
+  = render :partial => "layouts/sidebar"

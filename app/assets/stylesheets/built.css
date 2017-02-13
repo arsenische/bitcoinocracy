@@ -831,6 +831,8 @@ Styleguide 2.5
     margin-bottom: 0;
     font-weight: 500;
     color: #8b8b8b; }
+    .card > h1.breakable, .card > h2.breakable, .card > h3.breakable, .card > h4.breakable, .card > h5.breakable, .card > h6.breakable {
+      word-break: break-all; }
   .card.feature {
     text-align: center; }
     .card.feature > h1, .card.feature > h2, .card.feature > h3, .card.feature > h4, .card.feature > h5, .card.feature > h6 {

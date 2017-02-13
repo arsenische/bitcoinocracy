@@ -36,6 +36,10 @@ Styleguide 2.5
     margin-bottom: 0;
     font-weight: 500;
     color: #8b8b8b;
+
+    &.breakable {
+      word-break: break-all;
+    }
   }
 
   &.feature {
