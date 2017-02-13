@@ -118,7 +118,6 @@ GEM
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    le (2.7.4)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (2.8.0)
@@ -273,7 +272,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
-  le
   meta-tags
   pg
   pry-nav

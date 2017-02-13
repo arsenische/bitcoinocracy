@@ -9,7 +9,6 @@ services:
       - RACK_ENV=${RACK_ENV}
       - RAILS_ENV=${RAILS_ENV}
       - SENTRY_DSN=${SENTRY_DSN}
-      - LOGENTRIES_TOKEN=${LOGENTRIES_TOKEN}
   web:
     build: .
     command: bundle exec puma -C config/puma.rb
@@ -22,7 +21,12 @@ services:
       - ADMIN_EMAIL=${ADMIN_EMAIL}
       - ADMIN_PASSWORD=${ADMIN_PASSWORD}
       - SENTRY_DSN=${SENTRY_DSN}
-      - LOGENTRIES_TOKEN=${LOGENTRIES_TOKEN}
-
     ports:
       - "3000:3000"
+
+  logentries:
+    command: -t ${LOGENTRIES_TOKEN} --no-stats
+    image: logentries/docker-logentries
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
