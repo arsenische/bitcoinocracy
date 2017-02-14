@@ -44,6 +44,8 @@ textarea {
 
 .input-group {
   display: flex;
+  justify-content: center;
+  align-items: center;
 
   .form-control {
 
@@ -51,5 +53,11 @@ textarea {
 
   .input-group-btn {
     margin-left: 10px;
+  }
+
+  .icon {
+    margin-left: 10px;
+    font-size: 28px;
+    color: $dark;
   }
 }

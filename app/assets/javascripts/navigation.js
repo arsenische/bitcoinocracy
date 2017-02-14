@@ -4,4 +4,6 @@ $(document).ready(function() {
     $('nav.primary').toggleClass('activated');
     $(this).toggleClass('activated');
   });
+
+  $('.tooltipster').tooltipster();
 });

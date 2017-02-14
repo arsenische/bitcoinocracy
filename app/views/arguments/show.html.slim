@@ -19,7 +19,9 @@
                 .section
                   =form_tag(argument_signatures_path(@argument.id), {remote:true, id:"signature_form"}) do |f|
                     .section
-                      =text_field("signature", "signature", {style:"font-size:1.5em;width:100%;", placeholder:"Place signature here", class:"submit_on_edit"})
+                      .input-group
+                        =text_field("signature", "signature", {style:"font-size:1.2em;width:100%;", placeholder:"Place signature here", class:"submit_on_edit"})
+                        span.icon.icon-help-circled.tooltipster data-tooltip-content="#sign_message"
                     .section
                       =button_tag "Submit", class:"button"
                     .section
@@ -97,3 +99,9 @@
     input type='hidden' name='con_statement' id='con_statement' value=@argument.con_statement
 
   = render :partial => "layouts/sidebar"
+
+.tooltip_templates
+  #sign_message
+    .tooltip-content
+      h3 How do I sign a message?
+      p Many Bitcoin wallet software programs have built-in message signing functionality that allows you to sign a message with the Bitcoin key you possess; you can choose a wallet if you don’t have one already. Most wallets will have an area where your address is displayed that you can copy the voting argument into it and sign the message. After signing, the program will return a cryptographically secure signature for you to paste into the Argument page for verification.

@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 // require turbolinks
+//= require tooltipster.bundle.min
 //= require_tree .
