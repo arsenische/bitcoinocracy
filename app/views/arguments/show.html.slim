@@ -16,21 +16,24 @@
           #vote-form.section.hidden
             .card.shaded
               .content
-                =form_tag(argument_signatures_path(@argument.id), {remote:true, id:"signature_form"}) do |f|
-                  .section
-                    =text_field("signature", "signature", {style:"font-size:1.5em;width:100%;", placeholder:"Place signature here", class:"submit_on_edit"})
-                  .section
-                    =button_tag "Submit", class:"button"
-                  .section
-                    .alert.transparent
-                      | Warning: 
-                      a href="https://www.reddit.com/r/btc/comments/4mhjh3/psa_bitcoinocracycom_signatures_expose_your/" rel="nofollow" target="_blank" Bitcoin signatures expose your public keys
-                      |  (that shouldn't be a problem until 
-                      a href="https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm" rel="nofollow" target="_blank" ECDSA
-                      |  is broken). Moreover address reuse with a faulty random number generator 
-                      a href="http://www.nilsschneider.net/2013/01/28/recovering-bitcoin-private-keys.html" rel="nofollow" target="_blank" may leak your private keys
-                      |.
-                    =hidden_field("signature", "negation", {value: @is_doubt, autocomplete: false})
+                .section
+                  =form_tag(argument_signatures_path(@argument.id), {remote:true, id:"signature_form"}) do |f|
+                    .section
+                      =text_field("signature", "signature", {style:"font-size:1.5em;width:100%;", placeholder:"Place signature here", class:"submit_on_edit"})
+                    .section
+                      =button_tag "Submit", class:"button"
+                    .section
+                      .alert.transparent
+                        | Warning: 
+                        a href="https://www.reddit.com/r/btc/comments/4mhjh3/psa_bitcoinocracycom_signatures_expose_your/" rel="nofollow" target="_blank" Bitcoin signatures expose your public keys
+                        |  (that shouldn't be a problem until 
+                        a href="https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm" rel="nofollow" target="_blank" ECDSA
+                        |  is broken). Moreover address reuse with a faulty random number generator 
+                        a href="http://www.nilsschneider.net/2013/01/28/recovering-bitcoin-private-keys.html" rel="nofollow" target="_blank" may leak your private keys
+                        |.
+                      =hidden_field("signature", "negation", {value: @is_doubt, autocomplete: false})
+                .section
+                  #signature_status style="display: none;"
       / .argument-score
       /   .bar.positive style="flex-basis: #{percent_human(@argument.pros_share)};"= percent_human(@argument.pros_share)
       /   .bar.negative style="flex-basis: #{percent_human(@argument.cons_share)};"= percent_human(@argument.cons_share)

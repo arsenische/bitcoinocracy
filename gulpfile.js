@@ -66,7 +66,7 @@ gulp.task('styleguide:finalize', () =>
       ],
       cascade: false
     }))
-    .pipe(concat('built.css'))
+    .pipe(concat('built.css.scss'))
     .pipe(gulp.dest(finalDest))
 );
 
