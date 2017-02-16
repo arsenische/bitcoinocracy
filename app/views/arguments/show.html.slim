@@ -47,9 +47,17 @@
           .section
             - if @argument.pros_sum > @argument.cons_sum
               h3 #{btc_human(@argument.pros_sum)} agree that:
+              p #{@argument.statement}
             - if @argument.cons_sum > @argument.pros_sum
               h3 #{btc_human(@argument.cons_sum)} doubt that:
-            p #{@argument.statement}
+              p #{@argument.statement}
+            - if @argument.pros_sum == 0 && @argument.cons_sum == 0
+              h3 No one has voted on this proposition.
+              p Be the first to vote by signing with your bitcoin signature above.
+            - if @argument.pros_sum > 0 && @argument.cons_sum > 0 && @argument.pros_sum == @argument.cons_sum
+              h3 This proposition is currently tied.
+              p Vote now by signing with your bitcoin signature above.
+            
             .button-group.center
               a.button href="https://forum.bitcoin.com/bitcoin-discussion/" Discuss this proposition
           .section
@@ -65,37 +73,38 @@
           / .argument-score
           /   .bar.positive style="flex-basis: #{percent_human(@argument.pros_share)};"= percent_human(@argument.pros_share)
           /   .bar.negative style="flex-basis: #{percent_human(@argument.cons_share)};"= percent_human(@argument.cons_share)
+    
+    - if @argument.pros_sum > 0 && @argument.cons_sum > 0
+      .section
+        .card-group.horizontal
+          .card.text-center
+            h3 #{btc_human(@argument.pros_sum)} #{percent_human(@argument.pros_share)} Believe
+            .content
+              .section
+                .table-container
+                  - [@argument.pros].each_with_index do |addresses, i|
+                    table class="table borderless #{i==0 ? 'bg-success' : 'bg-danger'}"
+                      - addresses.each do |address|
+                        tr
+                          td
+                            p.bitcoin-address= link_to address.bitcoin_address, address_path(address.bitcoin_address)
+                          td
+                            p= btc_human address.balance
+          .card.text-center
+            h3 #{btc_human(@argument.cons_sum)} #{percent_human(@argument.cons_share)} Doubt
+            .content
+              .section
+                .table-container
+                  - [@argument.cons].each_with_index do |addresses, i|
+                    table class="table borderless #{i==0 ? 'bg-success' : 'bg-danger'}"
+                      - addresses.each do |address|
+                        tr
+                          td
+                            p.bitcoin-address= link_to address.bitcoin_address, address_path(address.bitcoin_address)
+                          td
+                            p= btc_human address.balance
 
-    .section
-      .card-group.horizontal
-        .card.text-center
-          h3 #{btc_human(@argument.pros_sum)} #{percent_human(@argument.pros_share)} Believe
-          .content
-            .section
-              .table-container
-                - [@argument.pros].each_with_index do |addresses, i|
-                  table class="table borderless #{i==0 ? 'bg-success' : 'bg-danger'}"
-                    - addresses.each do |address|
-                      tr
-                        td
-                          p.bitcoin-address= link_to address.bitcoin_address, address_path(address.bitcoin_address)
-                        td
-                          p= btc_human address.balance
-        .card.text-center
-          h3 #{btc_human(@argument.cons_sum)} #{percent_human(@argument.cons_share)} Doubt
-          .content
-            .section
-              .table-container
-                - [@argument.cons].each_with_index do |addresses, i|
-                  table class="table borderless #{i==0 ? 'bg-success' : 'bg-danger'}"
-                    - addresses.each do |address|
-                      tr
-                        td
-                          p.bitcoin-address= link_to address.bitcoin_address, address_path(address.bitcoin_address)
-                        td
-                          p= btc_human address.balance
-
-      div#signature_status style='display:none'
+        div#signature_status style='display:none'
 
     input type='hidden' name='pro_statement' id='pro_statement' value=@argument.pro_statement
     input type='hidden' name='con_statement' id='con_statement' value=@argument.con_statement
