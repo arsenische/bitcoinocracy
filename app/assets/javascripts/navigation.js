@@ -5,5 +5,7 @@ $(document).ready(function() {
     $(this).toggleClass('activated');
   });
 
-  $('.tooltipster').tooltipster();
+  $('.tooltipster').tooltipster({
+    trigger: 'click'
+  });
 });

@@ -42,6 +42,8 @@
     .section
       .card.text-center
         .content
+          .blurb
+            span.icon.icon-help-circled.tooltipster title="The validity of a proposition is equal to the difference of totals between Agree and Doubt votes."
           .section
             - if @argument.pros_sum > @argument.cons_sum
               h3 #{btc_human(@argument.pros_sum)} agree that:

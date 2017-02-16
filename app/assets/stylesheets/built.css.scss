@@ -1192,6 +1192,7 @@ Styleguide 2.5
         right: 10px;
         content: "”"; }
   .card .content {
+    position: relative;
     padding: 20px; }
     .card .content .section + .section {
       margin-top: 15px; }
@@ -3850,6 +3851,15 @@ select.mc_select {
   padding: 15px 0 0; }
   .tooltip-content h3 {
     font-weight: 700; }
+
+.tooltipster {
+  cursor: pointer; }
+
+.blurb {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #AAAAAA; }
 
 /*
 Header
