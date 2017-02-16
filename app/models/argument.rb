@@ -16,6 +16,7 @@ class Argument < ActiveRecord::Base
   has_many :cons, -> { uniq }, through: :con_signatures, class_name: 'BitcoinAddress', source: :bitcoin_address
 
   include AASM
+  include ActionView::Helpers::DateHelper
 
   aasm do
     state :visible, :initial => true
@@ -44,6 +45,10 @@ class Argument < ActiveRecord::Base
 
   def cons_share
     all_sum > 0 ? 1.0*cons_sum/all_sum : nil
+  end
+
+  def created_time_ago
+    'Submitted ' + time_ago_in_words(created_at) + ' ago'
   end
 
   def update_validity

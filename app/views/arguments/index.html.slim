@@ -22,7 +22,8 @@
     - @arguments.each do |argument|
       .listitem-argument class="#{argument.validity < 0 ? 'negative' : (argument.validity > 0 ? 'positive' : '')}"
         a.title href="#{argument_path(argument)}" 
-          = argument.statement
+          .heading= argument.statement
+          .details= argument.created_time_ago
         .summary
           .summary-panel
             .amount title="#{btc_human(argument.validity)}"

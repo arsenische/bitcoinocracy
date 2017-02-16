@@ -529,7 +529,10 @@ Styleguide 2.1
 
   markup:
   <div class="listitem-argument {$modifiers}">
-    <div class="title">Block size limit should be increased to 8 mb as soon as possible</div>
+    <div class="title">
+      <div class="heading">Block size limit should be increased to 8 mb as soon as possible</div>
+      <div class="details">Submitted 14 hours ago</div>
+    </div>
     <div class="summary">
       <div class="summary-panel">
         <div class="amount" title="5890.76742900">5890.76 <span class="currency">BTC</span></div>
@@ -761,13 +764,29 @@ Styleguide 2.1
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -moz-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     padding: 10px 20px;
     font-weight: 300; }
+    .listitem-argument .title .details {
+      font-size: 0.8em;
+      color: #AAAAAA;
+      margin-top: 5px; }
   .listitem-argument a.title {
     color: #3c3c3c;
     text-decoration: none;

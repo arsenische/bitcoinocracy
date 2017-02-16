@@ -17,7 +17,10 @@ Styleguide 2.1
 
   markup:
   <div class="listitem-argument {$modifiers}">
-    <div class="title">Block size limit should be increased to 8 mb as soon as possible</div>
+    <div class="title">
+      <div class="heading">Block size limit should be increased to 8 mb as soon as possible</div>
+      <div class="details">Submitted 14 hours ago</div>
+    </div>
     <div class="summary">
       <div class="summary-panel">
         <div class="amount" title="5890.76742900">5890.76 <span class="currency">BTC</span></div>
@@ -190,9 +193,17 @@ Styleguide 2.1
   .title {
     flex: 1 1 auto;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     padding: 10px 20px;
     font-weight: 300;
+
+    .details {
+      font-size: 0.8em;
+      color: $dark-complement;
+      margin-top: 5px;
+    }
   }
 
   a {
