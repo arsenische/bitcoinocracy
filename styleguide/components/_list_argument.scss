@@ -99,7 +99,9 @@ Styleguide 2.1
 
   &:hover {
     box-shadow: 0 0 15px #bbb;
-    border: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
   }
 
   + .listitem-argument {
