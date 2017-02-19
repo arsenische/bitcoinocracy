@@ -21,9 +21,11 @@ $(document).ready(function() {
     switch(statement) {
       case 'agree':
         newStatement = $('#pro_statement').val();
+        $('#signature_negation').val('false');
         break;
       case 'doubt':
         newStatement = $('#con_statement').val();
+        $('#signature_negation').val('true');
         break;
       default:
         newStatement = '';
