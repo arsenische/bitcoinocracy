@@ -1595,16 +1595,15 @@ Styleguide 2.6
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
-  .ad.dummy.ad-728x90 {
-    display: none; }
-    .ad.dummy.ad-728x90:before {
-      content: '728x90'; }
-    @media (min-width: 728px) {
-      .ad.dummy.ad-728x90 {
-        display: block; } }
+  .ad.dummy.ad-728x90:before {
+    content: '728x90'; }
   .ad.ad-728x90 {
     width: 728px;
-    height: 90px; }
+    height: 90px;
+    display: none; }
+    @media (min-width: 728px) {
+      .ad.ad-728x90 {
+        display: block; } }
 
 .main-wrapper.dummy {
   padding-top: 0; }

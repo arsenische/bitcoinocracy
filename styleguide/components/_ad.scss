@@ -48,14 +48,8 @@ Styleguide 2.6
     }
 
     &.ad-728x90 {
-      display: none;
-
       &:before {
         content: '728x90';
-      }
-
-      @media (min-width: 728px) {
-        display: block;
       }
     }
   }
@@ -63,5 +57,10 @@ Styleguide 2.6
   &.ad-728x90 {
     width: 728px;
     height: 90px;
+    display: none;
+
+    @media (min-width: 728px) {
+      display: block;
+    }
   }
 }
