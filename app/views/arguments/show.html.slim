@@ -19,8 +19,10 @@
                 .section
                   =form_tag(argument_signatures_path(@argument.id), {remote:true, id:"signature_form"}) do |f|
                     .section
+                      .alert.transparent Please copy the above statement, sign it with your bitcoin address, and paste signature here
+                    .section
                       .input-group
-                        =text_field("signature", "signature", {style:"font-size:1.2em;width:100%;", placeholder:"Place signature here", class:"submit_on_edit"})
+                        =text_field("signature", "signature", {style:"font-size:1em;width:100%;", placeholder:"Place signature here", class:"submit_on_edit"})
                         span.icon.icon-help-circled.tooltipster data-tooltip-content="#sign_message"
                     .section
                       =button_tag "Submit", class:"button"
