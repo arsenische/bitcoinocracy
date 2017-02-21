@@ -32,4 +32,15 @@ $(document).ready(function() {
     }
     $('#argument-statement').html(newStatement);
   }
+
+  var clipboard = new Clipboard('.button-copy');
+
+  clipboard.on('success', function(e) {
+    alert('Copied successfully!');
+    e.clearSelection();
+  });
+
+  clipboard.on('error', function(e) {
+    alert('The argument statement has been selected. You may copy the text now.');
+  });
 });

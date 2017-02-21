@@ -20,6 +20,7 @@ markup:
 Styleguide 2.5
 */
 .card {
+  position: relative;
   box-shadow: 0 0 10px #ccc;
 
   &.text-center {
@@ -39,6 +40,27 @@ Styleguide 2.5
 
     &.breakable {
       word-break: break-all;
+    }
+  }
+
+  .button-copy {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0 0 0 3px;
+    padding: 8px 12px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #fafafa;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 15px;
     }
   }
 

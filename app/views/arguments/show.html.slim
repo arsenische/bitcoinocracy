@@ -8,6 +8,7 @@
     .section
       .card.feature
         h3#argument-statement= @is_doubt ? @argument.con_statement : @argument.pro_statement
+        .button-copy data-clipboard-target="#argument-statement"= image_tag('clippy.svg', alt: 'Copy')
         .content
           .section
             .button-group.center

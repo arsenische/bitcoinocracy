@@ -15,4 +15,5 @@
 //= require twitter/bootstrap
 // require turbolinks
 //= require tooltipster.bundle.min
+//= require clipboard.min
 //= require_tree .

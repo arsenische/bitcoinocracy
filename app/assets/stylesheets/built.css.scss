@@ -1174,6 +1174,7 @@ markup:
 Styleguide 2.5
 */
 .card {
+  position: relative;
   box-shadow: 0 0 10px #ccc;
   /* Types */ }
   .card.text-center {
@@ -1186,6 +1187,21 @@ Styleguide 2.5
     color: #8b8b8b; }
     .card > h1.breakable, .card > h2.breakable, .card > h3.breakable, .card > h4.breakable, .card > h5.breakable, .card > h6.breakable {
       word-break: break-all; }
+  .card .button-copy {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0 0 0 3px;
+    padding: 8px 12px;
+    cursor: pointer; }
+    .card .button-copy:hover {
+      background-color: #fafafa; }
+    .card .button-copy img {
+      display: block;
+      width: 100%;
+      max-width: 15px; }
   .card.feature {
     text-align: center; }
     .card.feature > h1, .card.feature > h2, .card.feature > h3, .card.feature > h4, .card.feature > h5, .card.feature > h6 {
