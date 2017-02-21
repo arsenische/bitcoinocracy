@@ -1,0 +1,44 @@
+/*
+Argument summary
+
+markup:
+<div class="argument-summary">
+  <h1>Block size limit should be increased to 8 mb as soon as possible</h1>
+  <div class="argument-score">
+    <div class="bar positive" style="flex-basis: 23.5%;">23.5%</div>
+    <div class="bar negative" style="flex-basis: 76.5%;">76.5%</div>
+  </div>
+  <div class="button-group">
+    <a href="#" class="button">Doubt</a>
+  </div>
+</div>
+
+Styleguide 2.11
+*/
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 2px;
+  padding: 10px;
+  box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.02);
+  border: 1px solid #CCC;
+  transition: all 0.2s ease;
+
+  + input[type="text"],
+  + input[type="email"],
+  + input[type="number"],
+  + input[type="password"] {
+    margin-top: 10px;
+  }
+
+  &:focus {
+    box-shadow: 0 0 10px $brand-primary;
+    outline: none;
+  }
+}

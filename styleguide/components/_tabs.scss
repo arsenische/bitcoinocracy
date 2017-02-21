@@ -1,0 +1,64 @@
+/*
+Tabs
+
+markup:
+<nav class="tabs">
+  <ul>
+    <li class="active"><a href="javscript:;">Link 1</a></li>
+    <li><a href="javscript:;">Link 2</a></li>
+    <li><a href="javscript:;">Link 3</a></li>
+    <li><a href="javscript:;">Link 4</a></li>
+    <li><a href="javscript:;">Link 5</a></li>
+  </ul>
+</nav>
+
+Styleguide 2.8
+*/
+
+.tabs {
+  max-width: 100%;
+  overflow: auto;
+  margin: 0 0 35px;
+  border-bottom: 1px solid $brand-primary;
+
+  ul {
+    display: flex;
+    align-items: flex-end;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+      position: relative;
+      border-radius: 2px 2px 0 0;
+
+      a {
+        display: block;
+        padding: 10px 14px;
+        text-decoration: none;
+        color: #000000;
+      }
+
+      &:hover {
+        background-color: #EEE;
+      }
+
+      &.active {
+        z-index: 5;
+        border: 1px solid $brand-primary;
+        border-bottom: 0;
+        background-color: $brand-primary;
+
+        a {
+          padding: 13px 18px;
+          color: #FFF;
+          font-weight: 500;
+        }
+      }
+
+      + li {
+        margin-left: -1px;
+      }
+    }
+  }
+}

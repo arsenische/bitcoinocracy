@@ -1,0 +1,176 @@
+/*
+Card
+
+Card to display content
+
+markup:
+<div class="card">
+  <h3>Tools</h3>
+  <div class="content">
+    <nav>
+      <ul>
+        <li><a href="javascript:;">Tool #1</a></li>
+        <li><a href="javascript:;">Tool #2</a></li>
+        <li><a href="javascript:;">Tool #3</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+Styleguide 2.5
+*/
+.card {
+  position: relative;
+  box-shadow: 0 0 10px #ccc;
+
+  &.text-center {
+    text-align: center;
+  }
+
+  .image {
+
+  }
+
+  > h1, > h2, > h3, > h4, > h5, > h6 {
+    padding: 15px 20px;
+    border-bottom: 1px solid #CCCCCC;
+    margin-bottom: 0;
+    font-weight: 500;
+    color: #8b8b8b;
+
+    &.breakable {
+      word-break: break-all;
+    }
+  }
+
+  .button-copy {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0 0 0 3px;
+    padding: 8px 12px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #fafafa;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 15px;
+    }
+  }
+
+  &.feature {
+    text-align: center;
+
+    > h1, > h2, > h3, > h4, > h5, > h6 {
+      position: relative;
+      color: $dark;
+      padding: 25px 60px;
+      font-size: 1.2em;
+      font-weight: 700;
+
+      @media (min-width: $tablet) {
+        font-size: 1.6em;
+      }
+
+      &:before, &:after {
+        position: absolute;
+        color: #EEEEEE;
+        font-size: 80px;
+        height: 30px;
+        line-height: 70px;
+        font-family: 'Arial';
+      }
+
+      &:before {
+        top: 10px;
+        left: 10px;
+        content: "“";
+      }
+
+      &:after {
+        bottom: 10px;
+        right: 10px;
+        content: "”";
+      }
+    }
+  }
+
+  .content {
+    position: relative;
+    padding: 20px;
+
+    .section {
+      + .section {
+        margin-top: 15px;
+      }
+
+      &.hidden {
+        display: none;
+      }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 500;
+    }
+
+    .addthis_toolbox {
+      display: inline-block;
+    }
+  }
+
+  /* Types */
+  &.shaded {
+    background-color: #EAEAEA;
+    box-shadow: none;
+  }
+
+  nav {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+
+      li {
+        a {
+          display: block;
+          text-decoration: none;
+          padding: 7px 0;
+        }
+
+        + li {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
+
+.card-group {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $tablet) {
+    flex-direction: row;
+  }
+
+  .card {
+    flex: 1 1 100%;
+
+    @media (min-width: $tablet) {
+      flex: 1 1 50%;
+    }
+
+    + .card {
+      margin: 15px 0 0 0;
+      @media (min-width: $tablet) {
+        margin: 0 0 0 15px;
+      }
+    }
+  }
+}

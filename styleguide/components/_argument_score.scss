@@ -1,0 +1,41 @@
+/*
+Argument Score
+
+Displays argument score
+
+markup:
+<div class="hero small" style="background-image: url('assets/images/bg/buy_slide.jpg');">
+  <div class="hero-content">
+    <h1>Block size limit should be increased to 8 mb as soon as possible</h1>
+    <div class="argument-score">
+      <div class="bar positive" style="flex-basis: 23.5%;">23.5%</div>
+      <div class="bar negative" style="flex-basis: 76.5%;">76.5%</div>
+    </div>
+  </div>
+</div>
+
+Styleguide 2.7
+*/
+
+.argument-score {
+  display: flex;
+  width: 100%;
+  border-radius: 2px;
+  overflow: hidden;
+
+  .bar {
+    padding: 5px 10px;
+
+    &.positive {
+      flex: 1 1 auto;
+      background-color: $positive;
+      color: #FFFFFF;
+    }
+
+    &.negative {
+      flex: 1 1 auto;
+      background-color: $negative;
+      color: #FFFFFF;
+    }
+  }
+}

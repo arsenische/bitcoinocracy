@@ -1,0 +1,107 @@
+/*
+Navigation - Secondary
+
+Secondary site navigation
+
+markup:
+<nav class="secondary">
+  <div class="content">
+    <ul>
+      <li>
+        <a href="javascript:;">Home</a>
+      </li>
+      <li>
+        <a href="javascript:;">Submit</a>
+      </li>
+      <li>
+        <a href="javascript:;">Addresses</a>
+      </li>
+      <li>
+        <a href="javascript:;">How it Works</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+Styleguide 2.4
+*/
+nav {
+  &.secondary {
+    padding: 7px 10px;
+    background-color: #F8F8F8;
+    border-bottom: 1px solid #ddd;
+
+    @media (min-width: $desktop) {
+      padding: 7px 20px;
+    }
+
+    .content {
+      margin: 0 auto;
+      max-width: $content-width-max;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      @media (min-width: $desktop) {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        @media (min-width: $desktop) {
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+        }
+
+        li {
+          display: inline-block;
+          margin: 0 15px;
+
+          + li {
+            margin: 0 15px;;
+          }
+
+          @media (min-width: $desktop) {
+            margin: 0;
+
+            + li {
+              margin: 0 0 0 30px;
+            }
+          }
+
+          a {
+            display: block;
+            padding:7px 0;
+            text-decoration: none;
+            color: $dark;
+            transition: color 0.2s $easing;
+
+            &:hover {
+              color: $brand-primary;
+            }
+          }
+        }
+      }
+
+      .addthis_toolbox {
+        flex: 0 0 auto;
+        display: none;
+
+        @media (min-width: $desktop) {
+          display: block;
+        }
+
+        a {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

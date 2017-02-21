@@ -1,0 +1,207 @@
+/*
+Hero
+
+Hero section
+
+default                            - Default (Medium) size
+.small                             - small Size
+.large                             - large Size
+
+markup:
+<div class="hero {$modifiers}" style="background-image: url('assets/images/bg/buy_slide.jpg');">
+  <div class="hero-content">
+    <h1>Vote with your Bitcoin signature</h1>
+    <p>Vote is a free and decentralized way to measure the Bitcoin community's stance on a given proposition.</p>
+  </div>
+</div>
+
+Styleguide 2.2
+*/
+  /*
+  Hero
+
+  Hero 2-columns
+
+  markup:
+  <div class="hero {$modifiers}" style="background-image: url('assets/images/bg/buy_slide.jpg');">
+    <div class="hero-content flex-row">
+      <div class="logo">
+        <img src="assets/images/logo-bitcoinocracy.png">
+        <h1>Vote with your Bitcoin signature</h1>
+      </div>
+      <div class="content text-left">
+        <p>Bitcoinocracy is a free and decentralized way to measure the Bitcoin community's stance on a given proposition.</p>
+        <p>Voting requires proof of bitcoin holdings via cryptographic signature. Signed votes cannot be forged, and are fully auditable by all users.</p>
+      </div>
+    </div>
+  </div>
+
+  Styleguide 2.2.1
+  */
+
+.hero {
+  padding: 20px;
+  background-size: cover;
+  background-position: center;
+
+  .hero-content {
+    width: 100%;
+    max-width: $content-width-max;
+    margin: 0 auto;
+    background: rgba(0,0,0,0.7);
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 30px;
+
+    &.flex-row {
+      @media (min-width: $desktop) {
+        flex-direction: row;
+      }
+    }
+
+    @media (min-width: $desktop) {
+      padding: 20px 35px;
+      min-height: 180px;
+    }
+
+    h1 {
+      color: $brand-primary;
+      font-family: 'museo-sans-rounded';
+      font-size: 1.6em;
+      font-weight: 500;
+      margin: 0 0 15px;
+      line-height: 1.1em;
+
+      @media (min-width: $desktop) {
+        font-size: 2em;
+      }
+
+      @media (min-width: $desktop-medium) {
+        font-size: 3em;
+      }
+    }
+
+    h2 {
+      color: $bright;
+      font-family: 'museo-sans-rounded';
+      font-size: 1.8em;
+      font-weight: 500;
+      margin: 0 0 10px;
+      line-height: 1.1em;
+
+      @media (min-width: $desktop) {
+        font-size: 2.2em;
+      }
+
+      @media (min-width: $desktop-medium) {
+        font-size: 3.2em;
+      }
+    }
+
+    p {
+      color: $bright;
+      margin: 0 auto;
+      font-size: 0.8em;
+      line-height: 1.3em;
+      max-width: 600px;
+
+      @media (min-width: $desktop) {
+        font-size: 1em;
+      }
+
+      + p {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  &.small {
+    padding: 20px;
+
+    .hero-content {
+      @media (min-width: $desktop) {
+        padding: 30px 50px;
+      }
+      h1 {
+        @media (min-width: $desktop) {
+          font-size: 1.3em;
+        }
+
+        @media (min-width: $desktop-medium) {
+          font-size: 1.3em;
+        }
+      }
+
+      h2 {
+        @media (min-width: $desktop) {
+          font-size: 1.1em;
+        }
+
+        @media (min-width: $desktop-medium) {
+          font-size: 1.1em;
+        }
+      }
+
+      p {
+        @media (min-width: $desktop) {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+
+  &.large {
+    padding: 30px;
+
+    .hero-content {
+      @media (min-width: $desktop) {
+        padding: 30px 50px;
+        min-height: 400px;
+      }
+      h1 {
+        @media (min-width: $desktop) {
+          font-size: 3em;
+        }
+
+        @media (min-width: $desktop-medium) {
+          font-size: 4.375em;
+        }
+      }
+
+      p {
+        @media (min-width: $desktop) {
+          font-size: 1.4em;
+        }
+      }
+    }
+  }
+
+  .logo {
+    @media (min-width: $desktop) {
+      flex: 0 1 320px;
+    }
+
+    img {
+      max-width: 200px;
+    }
+
+    h1 {
+      font-size: 1em;
+    }
+  }
+
+  .content {
+    flex: 1 1 auto;
+    @media (min-width: $desktop) {
+      margin-left: 40px;
+    }
+
+    p {
+      max-width: 100%;
+    }
+  }
+}

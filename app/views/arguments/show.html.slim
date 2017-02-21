@@ -1,74 +1,121 @@
 - model_class = Argument
 - title @argument.statement
-.well
-    code
-      h1#argument
-       = @is_doubt ? @argument.con_statement : @argument.pro_statement
+= render :partial => "layouts/hero"
+= render :partial => "layouts/nav_secondary"
 
-    .row
-      .col-md-2
-        button.btn.btn-default.btn-lg.btn-info#toggle_button type="button"
-          span.fa.fa-refresh aria-hidden="true" 
-            |  Doubt
+.page-content
+  .main-section
+    .section
+      .card.feature
+        h3#argument-statement= @is_doubt ? @argument.con_statement : @argument.pro_statement
+        .button-copy data-clipboard-target="#argument-statement"= image_tag('clippy.svg', alt: 'Copy')
+        .content
+          .section
+            .button-group.center
+              #vote-agree.button.positive Agree
+              #vote-doubt.button.negative Doubt
+          #vote-form.section.hidden
+            .card.shaded
+              .content
+                .section
+                  =form_tag(argument_signatures_path(@argument.id), {remote:true, id:"signature_form"}) do |f|
+                    .section
+                      .alert.transparent Please copy the above statement, sign it with your bitcoin address, and paste signature here
+                    .section
+                      .input-group
+                        =text_field("signature", "signature", {style:"font-size:1em;width:100%;", placeholder:"Place signature here", class:"submit_on_edit"})
+                        span.icon.icon-help-circled.tooltipster data-tooltip-content="#sign_message"
+                    .section
+                      =button_tag "Submit", class:"button"
+                    .section
+                      .alert.transparent
+                        | Warning: 
+                        a href="https://www.reddit.com/r/btc/comments/4mhjh3/psa_bitcoinocracycom_signatures_expose_your/" rel="nofollow" target="_blank" Bitcoin signatures expose your public keys
+                        |  (that shouldn't be a problem until 
+                        a href="https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm" rel="nofollow" target="_blank" ECDSA
+                        |  is broken). Moreover address reuse with a faulty random number generator 
+                        a href="http://www.nilsschneider.net/2013/01/28/recovering-bitcoin-private-keys.html" rel="nofollow" target="_blank" may leak your private keys
+                        |.
+                      =hidden_field("signature", "negation", {value: @is_doubt, autocomplete: false})
+                .section
+                  #signature_status style="display: none;"
+      / .argument-score
+      /   .bar.positive style="flex-basis: #{percent_human(@argument.pros_share)};"= percent_human(@argument.pros_share)
+      /   .bar.negative style="flex-basis: #{percent_human(@argument.cons_share)};"= percent_human(@argument.cons_share)
+    .section
+      .card.text-center
+        .content
+          .blurb
+            span.icon.icon-help-circled.tooltipster title="The validity of a proposition is equal to the difference of totals between Agree and Doubt votes."
+          .section
+            - if @argument.pros_sum > @argument.cons_sum
+              h3 #{btc_human(@argument.pros_sum)} agree that:
+              p #{@argument.statement}
+            - if @argument.cons_sum > @argument.pros_sum
+              h3 #{btc_human(@argument.cons_sum)} doubt that:
+              p #{@argument.statement}
+            - if @argument.pros_sum == 0 && @argument.cons_sum == 0
+              h3 No one has voted on this proposition.
+              p Be the first to vote by signing with your bitcoin signature above.
+            - if @argument.pros_sum > 0 && @argument.cons_sum > 0 && @argument.pros_sum == @argument.cons_sum
+              h3 This proposition is currently tied.
+              p Vote now by signing with your bitcoin signature above.
+            
+            .button-group.center
+              a.button href="https://forum.bitcoin.com/bitcoin-discussion/" Discuss this proposition
+          .section
+            / AddThis Button BEGIN
+            .addthis_toolbox.addthis_default_style.addthis_32x32_style.pull-right addthis:data_track_clickback="false" addthis:data_track_addressbar="false" addthis:ui_language="#{I18n.locale}"
+              a.addthis_button_preferred_1
+              a.addthis_button_preferred_2
+              a.addthis_button_preferred_3
+              a.addthis_button_preferred_4
+              a.addthis_button_compact
+              a.addthis_counter.addthis_bubble_style
+            / AddThis Button END
+          / .argument-score
+          /   .bar.positive style="flex-basis: #{percent_human(@argument.pros_share)};"= percent_human(@argument.pros_share)
+          /   .bar.negative style="flex-basis: #{percent_human(@argument.cons_share)};"= percent_human(@argument.cons_share)
+    
+    - if @argument.pros_sum > 0 && @argument.cons_sum > 0
+      .section
+        .card-group.horizontal
+          .card.text-center
+            h3 #{btc_human(@argument.pros_sum)} #{percent_human(@argument.pros_share)} Believe
+            .content
+              .section
+                .table-container
+                  - [@argument.pros].each_with_index do |addresses, i|
+                    table class="table borderless #{i==0 ? 'bg-success' : 'bg-danger'}"
+                      - addresses.each do |address|
+                        tr
+                          td
+                            p.bitcoin-address= link_to address.bitcoin_address, address_path(address.bitcoin_address)
+                          td
+                            p= btc_human address.balance
+          .card.text-center
+            h3 #{btc_human(@argument.cons_sum)} #{percent_human(@argument.cons_share)} Doubt
+            .content
+              .section
+                .table-container
+                  - [@argument.cons].each_with_index do |addresses, i|
+                    table class="table borderless #{i==0 ? 'bg-success' : 'bg-danger'}"
+                      - addresses.each do |address|
+                        tr
+                          td
+                            p.bitcoin-address= link_to address.bitcoin_address, address_path(address.bitcoin_address)
+                          td
+                            p= btc_human address.balance
 
-      .col-md-1
-        span.lead
-          |  OR  
-      .col-md-9
-        =form_tag(argument_signatures_path(@argument.id), {remote:true, id:"signature_form"}) do |f|
-          =text_area("signature", "signature", {style:"font-size:1.5em;width:100%;", placeholder:"Please copy the above statement, sign it with your bitcoin address and paste the signature here", class:"submit_on_edit"})
-          =button_tag "Submit", class:"btn btn-lg btn-success pull-right"
-          .alert.alert-warning
-            | Warning: 
-            a href="https://www.reddit.com/r/btc/comments/4mhjh3/psa_bitcoinocracycom_signatures_expose_your/" rel="nofollow" target="_blank" Bitcoin signatures expose your public keys
-            |  (that shouldn't be a problem until 
-            a href="https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm" rel="nofollow" target="_blank" ECDSA
-            |  is broken). Moreover address reuse with a faulty random number generator 
-            a href="http://www.nilsschneider.net/2013/01/28/recovering-bitcoin-private-keys.html" rel="nofollow" target="_blank" may leak your private keys
-            |.
-          =hidden_field("signature", "negation", {value: @is_doubt, autocomplete: false})
+        div#signature_status style='display:none'
 
-    div#signature_status style='display:none'
+    input type='hidden' name='pro_statement' id='pro_statement' value=@argument.pro_statement
+    input type='hidden' name='con_statement' id='con_statement' value=@argument.con_statement
 
-.row
-  .col-md-12
-    p 
-      h2
-        .pull-left
-          = model_class.human_attribute_name(:validity) + ': ' + btc_human(@argument.validity)
+  = render :partial => "layouts/sidebar"
 
-
-        / AddThis Button BEGIN
-        .addthis_toolbox.addthis_default_style.addthis_32x32_style.pull-right addthis:data_track_clickback="false" addthis:data_track_addressbar="false" addthis:ui_language="#{I18n.locale}"
-          a.addthis_button_preferred_1
-          a.addthis_button_preferred_2
-          a.addthis_button_preferred_3
-          a.addthis_button_preferred_4
-          a.addthis_button_compact
-          a.addthis_counter.addthis_bubble_style
-        / AddThis Button END
-
-        small =link_to "see all signatures", argument_path(@argument, :json), class:"btn btn-small btn-link"
-
-
-.row
-    .col-md-6.bg-success
-      h3 #{btc_human(@argument.pros_sum)} #{percent_human(@argument.pros_share)} Believe
-    .col-md-6.bg-danger
-      h3 #{btc_human(@argument.cons_sum)} #{percent_human(@argument.cons_share)} Doubt
-
-.row
-    - [@argument.pros, @argument.cons].each_with_index do |addresses, i|
-      .col-md-6     
-        table class="table #{i==0 ? 'bg-success' : 'bg-danger'}"
-          - addresses.each do |address|
-            tr
-              td
-                =link_to address.bitcoin_address, address_path(address.bitcoin_address)
-              td
-                =btc_human address.balance
-
-input type='hidden' name='pro_statement' id='pro_statement' value=@argument.pro_statement
-input type='hidden' name='con_statement' id='con_statement' value=@argument.con_statement
-
-
+.tooltip_templates
+  #sign_message
+    .tooltip-content
+      h3 How do I sign a message?
+      p Many Bitcoin wallet software programs have built-in message signing functionality that allows you to sign a message with the Bitcoin key you possess; you can choose a wallet if you don’t have one already. Most wallets will have an area where your address is displayed that you can copy the voting argument into it and sign the message. After signing, the program will return a cryptographically secure signature for you to paste into the Argument page for verification.

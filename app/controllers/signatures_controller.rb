@@ -25,7 +25,7 @@ class SignaturesController < ApplicationController
         end
       rescue => e
        format.js {render :create_fail, :locals => {error_message: "Signature submission failed (non-unique signature?)" , exception: e}}
-      end    
+      end
 
     end
   end

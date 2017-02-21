@@ -14,3 +14,12 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore local docker-compose .env settings
+/.env
+
+# Ignore generated styleguide files
+/styleguide-documentation
+
+# Ignore node dependencies
+/node_modules

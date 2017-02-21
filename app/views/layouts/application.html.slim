@@ -5,30 +5,39 @@ html
     = display_meta_tags site: 'Bitcoinocracy', separator: "&mdash;".html_safe
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    javascript:
+      var BitcoinMenuWidth = 1200;
+    = javascript_include_tag 'https://menu.bitcoin.com/universal-menu.js'
+    = render 'layouts/google_analytics'
     = csrf_meta_tags
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    link rel="shortcut icon" href="#{image_url('favicon.png')}" type="image/x-icon"
   body
-    = nav_bar static: :top, brand: "Bitcoinocracy", responsive: true
-      = menu_group
-        = menu_item "Home", root_path
-        = menu_item t("arguments.index.new"), new_argument_path
-        = menu_item t("addresses.index"), addresses_path
+    .main-wrapper
+      .container
+        - if flash[:error]
+          .error.bg-danger =h flash[:error]
+        - if flash[:alert]
+          .error.bg-danger =h flash[:alert]
+        - if flash[:notice]
+          .notice.bg-success =h flash[:notice]
 
-    .container
-      - if flash[:error]
-        .error.bg-danger =h flash[:error]
-      - if flash[:alert]
-        .error.bg-danger =h flash[:alert]
-      - if flash[:notice]
-        .notice.bg-success =h flash[:notice]
+        = yield
 
-      = yield
-      .footer
-        hr
-        a.pull-right href="https://github.com/arsenische/bitcoinocracy/issues/new" target="_blank" Report a bug
-        p 
-          a href="http://bitcoinocracy.com" Bitcoinocracy.com
-          |. Source code is available at 
-          a href="https://github.com/arsenische/bitcoinocracy/" target="_blank" GitHub
-          |  and you can also 
-          a href="https://tip4commit.com/github/arsenische/bitcoinocracy" target="_blank" support
-          |  its development.
+    = render :partial => "layouts/footer"
+    / .footer
+    /   .footer-content
+    /     a.pull-right href="https://github.com/bitcoin-portal/bitcoinocracy/issues/new" target="_blank" Report a bug
+    /     p
+    /       a href="http://vote.bitcoin.com" Bitcoinocracy
+    /       |. Source code is available at 
+    /       a href="https://github.com/bitcoin-portal/bitcoinocracy/" target="_blank" GitHub.
+
+    javascript:
+      (function(b,i,t,C,O,I,N) {
+        window.addEventListener('load',function() {
+          if(b.getElementById(C))return;
+          I=b.createElement(i),N=b.getElementsByTagName(i)[0];
+          I.src=t;I.id=C;N.parentNode.insertBefore(I, N);
+        },false)
+      })(document,'script','https://widgets.bitcoin.com/widget.js','btcwdgt');

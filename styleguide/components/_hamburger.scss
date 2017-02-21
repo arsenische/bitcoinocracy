@@ -1,0 +1,88 @@
+/*
+Hamburger
+
+markup:
+<div id="univ-hmbgr" class="hmbgr-wrap" ng-init="activated = false" ng-click="activated = !activated; navActivated = !navActivated" ng-class="{activated: activated}">
+  <div class="hmbgr"></div>
+</div>
+
+sg-wrapper:
+<div class="panel-dark"><sg-wrapper-content/></div>
+
+Styleguide 1.2
+*/
+.hmbgr-wrap {
+  position: relative;
+  top: 0;
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+  width: 4.4em;
+
+  &:before {
+    content: 'menu';
+    color: #ccc;
+    padding-right: 0.25em;
+    display: inline-block;
+    transition: color 0.2s;
+  }
+
+  .hmbgr {
+      vertical-align: middle;
+      right: 0;
+      top: 50%;
+      margin-top: -1px;
+
+      &:before,
+      &:after {
+        content: '';
+      }
+
+      &:before {
+        top: -6px;
+      }
+
+      &:after {
+        top: 6px;
+      }
+  }
+
+  .hmbgr,
+  .hmbgr:before,
+  .hmbgr:after {
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background-color: #ccc;
+    border-radius: 1.5px;
+    line-height: 0px;
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.5s, background-color 0.2s;
+  }
+
+  .hmbgr-wrap:hover .hmbgr,
+  .hmbgr-wrap:hover .hmbgr:before,
+  .hmbgr-wrap:hover .hmbgr:after {
+    background-color: white;
+  }
+
+  &.activated {
+    .hmbgr {
+      background-color: #191919 !important;
+
+      &:before,
+      &:after {
+          background-color: #ef5d34 !important;
+      }
+
+      &:before {
+        transform: translateY(6px) rotate(135deg) !important;
+      }
+
+      &:after {
+        transform: translateY(-6px) rotate(-135deg) !important;
+      }
+    }
+  }
+}

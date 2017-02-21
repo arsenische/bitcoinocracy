@@ -1,0 +1,55 @@
+/*
+Pagination
+
+markup:
+<ul class="pagination">
+  <li><a href="javscript:;">First</a></li>
+  <li><a href="javscript:;">Previous</a></li>
+  <li class="active"><a href="javscript:;">1</a></li>
+  <li><a href="javscript:;">2</a></li>
+  <li><a href="javscript:;">3</a></li>
+  <li><a href="javscript:;">4</a></li>
+  <li><a href="javscript:;">5</a></li>
+  <li><a href="javscript:;">Next</a></li>
+  <li><a href="javscript:;">Last</a></li>
+</ul>
+
+Styleguide 2.9
+*/
+
+.pagination {
+  display: flex;
+  list-style-type: none;
+  margin: 15px 0 0;
+  padding: 0;
+
+  .page,
+  .prev,
+  .next_page,
+  .first,
+  .last {
+    + .page,
+    + .prev,
+    + .next_page,
+    + .first,
+    + .last {
+      margin-left: 3px;
+    }
+
+    a {
+      text-decoration: none;
+      display: inline-block;
+      border: 1px solid #CCC;
+      color: #AAA;
+      padding: 3px 5px;
+    }
+
+    &.active {
+      a {
+        background-color: $brand-primary;
+        border: 1px solid $brand-primary;
+        color: #FFF;
+      }
+    }
+  }
+}

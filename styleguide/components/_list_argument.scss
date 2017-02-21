@@ -1,0 +1,243 @@
+/*
+Argument List Item
+
+Style for argument list item
+
+Styleguide 2.1
+*/
+
+  /*
+  Status
+
+  Default style for an argument
+
+  default                            - Default status
+  .positive                          - Positive status
+  .negative                          - Negative status
+
+  markup:
+  <div class="listitem-argument {$modifiers}">
+    <div class="title">
+      <div class="heading">Block size limit should be increased to 8 mb as soon as possible</div>
+      <div class="details">Submitted 14 hours ago</div>
+    </div>
+    <div class="summary">
+      <div class="summary-panel">
+        <div class="amount" title="5890.76742900">5890.76 <span class="currency">BTC</span></div>
+      </div>
+      <div class="vote-panel">
+        <a href="javascript:;" class="vote-up"><span class="arrow up"></span></a>
+        <a href="javascript:;" class="vote-down"><span class="arrow down"></span></a>
+      </div>
+    </div>
+  </div>
+
+  Styleguide 2.1.1
+  */
+
+  /*
+  Vote button style A
+
+  Default style for an argument
+
+  default                              - Default theme (light)
+  .theme-dark                          - Dark theme
+
+  markup:
+  <div class="listitem-argument positive {$modifiers}">
+    <div class="title">Block size limit should be increased to 8 mb as soon as possible</div>
+    <div class="summary">
+      <div class="summary-panel">
+        <div class="vote-up"><a href="#"><span class="arrow up"></span></a></div>
+        <div class="amount" title="5890.76742900">5890.76 <span class="currency">BTC</span></div>
+        <div class="vote-down"><a href="javascript:;"><span class="arrow down"></span></a></div>
+      </div>
+    </div>
+  </div>
+
+  Styleguide 2.1.2
+  */
+  /*
+  Vote button style B
+
+  Default style for an argument
+
+  default                              - Default theme (light)
+  .theme-dark                          - Dark theme
+
+  markup:
+  <div class="listitem-argument positive {$modifiers}">
+    <div class="title">Block size limit should be increased to 8 mb as soon as possible</div>
+    <div class="summary">
+      <div class="summary-panel">
+        <div class="amount" title="5890.76742900">5890.76 <span class="currency">BTC</span></div>
+      </div>
+      <div class="vote-panel">
+        <a href="javascript:;" class="vote-up"><span class="arrow up"></span></a>
+        <a href="javascript:;" class="vote-down"><span class="arrow down"></span></a>
+      </div>
+    </div>
+  </div>
+
+  Styleguide 2.1.3
+  */
+
+.listitem-argument {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  box-shadow: 0 0 5px #eee;
+  border: 1px solid #ddd;
+  border-left: 12px solid #f9b016;
+  background-color: #FFFFFF;
+  color: $dark;
+  transition: all 0.3s $easing;
+
+  @media (min-width: $desktop) {
+    flex-wrap: nowrap;
+  }
+
+  &:hover {
+    box-shadow: 0 0 15px #bbb;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+
+  + .listitem-argument {
+    margin-top: 15px;
+  }
+
+  &.positive {
+    border-left: 12px solid $positive;
+  }
+
+  &.negative {
+    border-left: 12px solid $negative;
+  }
+
+  .summary {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: rgba(0,0,0,0.05);
+
+    @media (min-width: $desktop) {
+      max-width: 200px;
+    }
+
+    .summary-panel {
+      padding: 10px 20px;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vote-panel {
+      display: flex;
+
+      .arrow {
+        &.up {
+          border-color: transparent transparent #FFFFFF transparent;
+        }
+
+        &.down {
+          border-color: #FFFFFF transparent transparent transparent;
+        }
+      }
+
+      .vote-down {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        flex: 1 1 auto;
+        background-color: #666666;
+        transition: background-color 0.2s cubic-bezier(.55,0,.1,1);
+
+        &:hover {
+          background-color: #f33535;
+        }
+      }
+
+      .vote-up {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        flex: 1 1 auto;
+        background-color: #666666;
+        transition: background-color 0.2s cubic-bezier(.55,0,.1,1);
+
+        &:hover {
+          background-color: #7bdc08;
+        }
+      }
+    }
+
+    .amount {
+      font-size: 1.1em;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+
+      @media (min-width: $mobile) {
+        font-size: 1.5em;
+      }
+    }
+  }
+
+  .title {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px 20px;
+    font-weight: 300;
+
+    .details {
+      font-size: 0.8em;
+      color: $dark-complement;
+      margin-top: 5px;
+    }
+  }
+
+  a {
+    &.title {
+      color: $dark;
+      text-decoration: none;
+      transition: color 0.3s $easing;
+
+      &:hover {
+        color: $brand-primary;
+      }
+    }
+  }
+
+  /* Themes */
+  &.theme-dark {
+    background-color: #3c3c3c;
+    color: #AAAAAA;
+
+    .summary {
+      background-color: #f9b016;
+      color: #FFFFFF;
+
+      .arrow {
+        &.up {
+          border-color: transparent transparent #FFFFFF transparent;
+        }
+
+        &.down {
+          border-color: #FFFFFF transparent transparent transparent;
+        }
+      }
+    }
+  }
+}

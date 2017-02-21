@@ -1,0 +1,17 @@
+nav.secondary
+  .content
+    = menu_group
+      = menu_item "Home", root_path
+      = menu_item t("arguments.index.new"), new_argument_path
+      = menu_item t("addresses.index"), addresses_path
+      = menu_item t("faq"), faq_path
+
+    / AddThis Button BEGIN
+    .addthis_toolbox.addthis_default_style.addthis_32x32_style.pull-right addthis:data_track_clickback="false" addthis:data_track_addressbar="false" addthis:ui_language="#{I18n.locale}" addthis:url="http://bitcoinocracy.com"
+      a.addthis_button_preferred_1
+      a.addthis_button_preferred_2
+      a.addthis_button_preferred_3
+      a.addthis_button_preferred_4
+      a.addthis_button_compact
+      a.addthis_counter.addthis_bubble_style
+    / AddThis Button END

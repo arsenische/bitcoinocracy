@@ -1,0 +1,148 @@
+/*
+Footer
+
+markup:
+<div class="footer">
+  <div class="footer-content">
+    <p>Saint Bitts LLC. 2016 | Bitcoin.com</p>
+  </div>
+</div>
+
+sg-wrapper:
+<div class="dummy">
+  <sg-wrapper-content/>
+</div>
+
+Styleguide 3.4
+*/
+
+.footer {
+  background: #000000;
+
+  .footer-content {
+    margin: 0 auto;
+    padding: 12px;
+    max-width: $content-width-max;
+    color: #FFFFFF;
+  }
+}
+
+#Footer {
+  background-image: url("https://www.bitcoin.com/wp-content/uploads/2015/12/footer_bg.jpg");
+  background-size: cover;
+  color: #cccccc;
+  padding: 2em 1em;
+
+  h4 {
+    color: #fbba16;
+    font-size: 1.2em;
+    margin: 0 0 1em;
+    text-transform: uppercase;
+  }
+
+  a {
+    color: #FFFFFF;
+    text-decoration: none;
+
+    &:hover {
+      color: $brand-primary;
+      text-decoration: underline;
+    }
+  }
+
+  .container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: $content-width-max;
+    margin: 0 auto;
+
+    @media (min-width: $tablet) {
+      flex-wrap: nowrap;
+    }
+
+    > .column {
+      flex: 1 1 100%;
+      margin: 0 0.76em;
+
+      @media (min-width: $tablet) {
+        flex: 1 1 0;
+      }
+
+      + .column {
+        margin-top: 25px;
+
+        @media (min-width: $tablet) {
+          margin-top: 0;
+        }
+      }
+    }
+
+    p {
+      line-height: 1.56em;
+      margin: 0;
+
+      + p {
+        margin: 15px 0 0;
+      }
+    }
+  }
+
+  .textwidget {
+    width: 100%;
+    display: flex;
+    max-width: $content-width-max;
+    margin: 0 auto;
+
+    > .column {
+      flex: 1 1 0;
+
+      + .column {
+        @media (min-width: $tablet) {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    a {
+      display: block;
+      color: #cccccc;
+      text-decoration: none;
+      font-size: 0.8125em;
+      margin-bottom: 0.6em;
+
+      &:hover {
+        color: $brand-primary;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.footer_copy {
+  border-top: 1px solid rgba(255,255,255,.1);
+  margin-top: 25px;
+  padding: 25px 10px;
+
+  .column {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .copyright {
+      font-size: 0.8125em;
+    }
+
+    .social {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+      font-size: 1.5em;
+
+      li {
+        margin: 0 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+/*
+Header
+
+Styles for header
+
+markup:
+<div class="header">
+  <div class="header-content">
+    <div class="logo"><img src="assets/images/logo-bitcoin.png"></div>
+    <nav>
+      <a href="javascript:;">Start here</a>
+      <a href="javascript:;">News</a>
+      <a href="javascript:;">Forum</a>
+      <a href="javascript:;">Games</a>
+    </nav>
+    <sg-insert>1.2</sg-insert>
+  </div>
+</div>
+
+sg-wrapper:
+<div class="dummy">
+  <sg-wrapper-content/>
+</div>
+
+Styleguide 3.1
+*/
+
+.header {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 0 16px;
+  background-color: #191919;
+  border-bottom: 2px solid #f9b016;
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    height: $header-height;
+    margin: 0 auto;
+    max-width: $content-width-max;
+  }
+
+  .logo {
+    flex: 1 1 auto;
+
+    @media (min-width: $tablet) {
+      flex: 0 0 auto;
+    }
+
+    img {
+      max-height: 23px;
+    }
+  }
+
+  nav {
+    flex: 1 1 auto;
+    display: none;
+    margin-left: 16px;
+
+    @media (min-width: $tablet) {
+      display: flex;
+    }
+
+    a {
+      padding: 0 6px;
+      color: #AAAAAA;
+      text-decoration: none;
+      transition: color 0.2s cubic-bezier(.55,0,.1,1);
+
+      &:hover {
+        color: #FFFFFF;
+      }
+
+      + a {
+        border-left: 1px solid #595959;
+      }
+    }
+  }
+}
+
+.dummy {
+  .header {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+  }
+}
