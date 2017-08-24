@@ -48,7 +48,7 @@ Build the image:
 
 `docker build -t arsenische/bitcoinocracy .`
 
-Run the container (please change the SECRET_KEY_BASE and DATABASE_URL before running):
+Run the container (please change the `SECRET_KEY_BASE` and `DATABASE_URL` before running):
 
 ~~~~
 docker run \
